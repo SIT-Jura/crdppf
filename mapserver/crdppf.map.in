@@ -402,7 +402,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialn
+            FONT cadastra_bold
             SIZE 9
             ANTIALIAS TRUE
             COLOR 255 0 0
@@ -421,7 +421,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialn
+            FONT cadastra_bold
             SIZE 9
             ANTIALIAS TRUE
             COLOR 0 230 0
@@ -444,7 +444,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialn
+            FONT cadastra_bold
             SIZE 9
             ANTIALIAS TRUE
             COLOR 255 0 0
@@ -467,7 +467,7 @@ LAYER
         END
             LABEL
             TYPE TRUETYPE
-            FONT arialn
+            FONT cadastra_bold
             SIZE 9
             ANTIALIAS TRUE
             COLOR 255 0 0
@@ -490,7 +490,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialn
+            FONT cadastra_bold
             SIZE 9
             ANTIALIAS TRUE
             COLOR 255 0 0
@@ -507,7 +507,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialn
+            FONT cadastra_bold
             SIZE 9
             ANTIALIAS TRUE
             COLOR 170 100 0
@@ -523,7 +523,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialn
+            FONT cadastra_bold
             SIZE 9
             ANTIALIAS TRUE
             COLOR 255 0 0
@@ -546,7 +546,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialn
+            FONT cadastra_bold
             SIZE 9
             ANTIALIAS TRUE
             COLOR 0 0 255
@@ -562,7 +562,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialn
+            FONT cadastra_bold
             SIZE 9
             ANTIALIAS TRUE
             COLOR 0 0 0
@@ -778,7 +778,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             ANTIALIAS TRUE
             COLOR 0 0 0
@@ -795,7 +795,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             ANTIALIAS TRUE
             COLOR 0 0 0
@@ -812,7 +812,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             COLOR 0 0 0
             OUTLINECOLOR 255 255 255
@@ -828,7 +828,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             COLOR 0 0 0
             OUTLINECOLOR 255 255 255
@@ -844,7 +844,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             ANTIALIAS TRUE
             COLOR 0 0 0
@@ -861,7 +861,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             ANTIALIAS TRUE
             COLOR 0 0 0
@@ -882,7 +882,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             ANTIALIAS TRUE
             COLOR 0 0 0
@@ -903,7 +903,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             ANTIALIAS TRUE
             COLOR 0 0 0
@@ -924,7 +924,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             ANTIALIAS TRUE
             COLOR 0 0 0
@@ -941,7 +941,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             ANTIALIAS TRUE
             COLOR 0 0 0
@@ -962,7 +962,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             ANTIALIAS TRUE
             COLOR 0 0 0
@@ -983,7 +983,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             ANTIALIAS TRUE
             COLOR 0 0 0
@@ -1000,7 +1000,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             ANTIALIAS TRUE
             COLOR 0 0 0
@@ -1017,7 +1017,7 @@ LAYER
         END
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 11
             ANTIALIAS TRUE
             COLOR 0 0 0
@@ -1801,7 +1801,7 @@ LAYER
     CLASS
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 6
             ANGLE AUTO
             ANTIALIAS TRUE
@@ -1995,7 +1995,7 @@ LAYER
     CLASS
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 8
             ANGLE AUTO
             ANTIALIAS TRUE
@@ -2036,7 +2036,7 @@ LAYER
     CLASS
         LABEL
             TYPE TRUETYPE
-            FONT arialbd
+            FONT cadastra_bold
             SIZE 7
             ANGLE AUTO
             ANTIALIAS TRUE
@@ -2229,7 +2229,7 @@ LAYER
     CLASS
         LABEL
             TYPE TRUETYPE
-            FONT ariali
+            FONT cadastra_italic
             SIZE 9
             ANGLE AUTO
             ANTIALIAS TRUE
@@ -2273,7 +2273,7 @@ LAYER
     CLASS
         LABEL
             TYPE TRUETYPE
-            FONT ariali
+            FONT cadastra_italic
             PARTIALS FALSE
             MINDISTANCE 150
             SIZE 7

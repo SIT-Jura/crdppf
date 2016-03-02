@@ -39,3 +39,7 @@ webdings			fonts/webdings.ttf
 esri18			fonts/esri_375.ttf
 bullets			fonts/combuln.ttf
 pompiers_intervention	fonts/pompiers_intervention.ttf
+cadastra fonts/Cadastra.ttf
+cadastra_bold fonts/CadastraBd.ttf
+cadastra_italic fonts/CadastraIt.ttf
+cadastra_bold_italic fonts/CadastraBdIt.ttf
