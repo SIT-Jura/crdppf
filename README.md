@@ -37,6 +37,7 @@ maybe a
 Not that you have to fix the setuptool and zc.buildout versions regarding what
 is written in the version file
 https://github.com/sitn/crdppf_core/blob/master/versions.cfg:
+
     cd ..
     python bootstrap-buildout.py -v 2.3.0  --setuptools-version 16.0
 
