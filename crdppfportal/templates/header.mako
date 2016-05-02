@@ -21,6 +21,7 @@
                     <a class="banner2" href="http://geo.jura.ch/doc/Aide/CRDPPF_Extrait_certifie.pdf" target="_blank">Commande extrait certifié</a> -
                     <a class="banner2" href="http://geo.jura.ch" target="_blank">GéoPortail</a> -
                     <a class="banner2" href="http://geo.jura.ch/doc/Aide/Aide_CRDPPF.pdf" target="_blank">Aide</a> -
+                    <a class="banner2" href="http://geo.jura.ch/doc/Aide/FAQ_CRDPPF.pdf" target="_blank">FAQ</a> -
                     <a class="banner2" href="mailto:sit@jura.ch?subject=Projet pilote CRDPPF" target="_blank">Contact</a> - 
                     <a class="banner2" href="" id="frLink">Fr</a> /
                     <a class="banner2" href="" id="deLink">De</a>
