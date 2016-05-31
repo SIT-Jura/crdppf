@@ -9,10 +9,7 @@ cd crdppf_core
 git submodule update --init
 
 cd ..
-
-python bootstrap.py --version 1.5.2 --distribute --download-base \
-    http://pypi.camptocamp.net/distribute-0.6.22_fix-issue-227/ --setup-source \
-    http://pypi.camptocamp.net/distribute-0.6.22_fix-issue-227/distribute_setup.py
+python bootstrap-buildout.py -v 2.3.0  --setuptools-version 16.0
     
 cd ..
 chmod -R o+w crdppf
