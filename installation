@@ -1,4 +1,7 @@
 #Commandes d'installations
+#cd
+#ou
+#cd /var/www/vhosts/sitj/private
 
 git clone git@github.com:SIT-Jura/crdppf.git
 
