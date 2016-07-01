@@ -1026,6 +1026,23 @@ LAYER
             MINFEATURESIZE 70
         END
     END   
+    CLASS
+        NAME "En attente d'une décision de justice"
+        EXPRESSION "Recours"
+        STYLE
+            COLOR 75 75 75
+        END
+        LABEL
+            TEXT "Ce secteur est\actuellement en\attente d'une\décision de justice"
+            TYPE TRUETYPE
+            FONT cadastra_bold
+            SIZE 8
+            ANTIALIAS TRUE
+            COLOR 255 0 0
+            OUTLINECOLOR 255 255 255
+            wrap "\n"
+        END
+    END   
 END
 
 LAYER
