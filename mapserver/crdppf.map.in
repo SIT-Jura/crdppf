@@ -2240,7 +2240,7 @@ LAYER
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_nomenclature using unique objectid using srid=21781"
+    DATA "geom from cadastre.cad_nomenclature_noms using unique objectid using srid=21781"
     CLASSITEM 'nom'
     LABELITEM 'nom'
     LABELMAXSCALE 3600
