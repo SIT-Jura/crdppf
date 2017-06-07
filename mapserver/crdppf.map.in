@@ -2221,15 +2221,12 @@ END
 LAYER
     NAME "cadastre_nomenclature"
     GROUP "plan_cadastral"
-#    TYPE ANNOTATION
     TYPE POINT
     STATUS ON
     METADATA
-        "ows_title" "cadastre_nomenclature"
-        "wms_srs" "epsg:21781"
-        #"gml_include_items" "all"
+        "ows_title" "cadastre_nomenclature_nom_local"
+        "wms_srs" "EPSG:21781"
         "gml_types" "auto"
-        #"wfs_enable_request" "*"
         "gml_geometries" "geom"
         "gml_geom_type" "point"
     END
@@ -2238,13 +2235,14 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_nomenclature_noms using unique objectid using srid=21781"
-    CLASSITEM 'nom'
+    DATA "geom from cadastre.cad_nomenclature_noms_posnom using unique objectid using srid=21781"
+    CLASSITEM 'categorie'
     LABELITEM 'nom'
     LABELMAXSCALE 3600
     CLASS
+        EXPRESSION "Nom local"
         LABEL
             TYPE TRUETYPE
             FONT cadastra_italic
@@ -2253,6 +2251,7 @@ LAYER
             ANTIALIAS TRUE
             COLOR 0 0 0
             OUTLINECOLOR 255 255 255
+            POSITION cr
         END
     END
     MINSCALEDENOM 50
