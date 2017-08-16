@@ -12,7 +12,7 @@ cd crdppf_core
 git submodule update --init
 
 cd ..
-python bootstrap-buildout.py -v 2.3.0  --setuptools-version 16.0
+python bootstrap-buildout.py -v 2.5.0  --setuptools-version 16.0
     
 cd ..
 chmod -R o+w crdppf

@@ -70,6 +70,8 @@ pdf_config:
   fitratio: 0.9
   # path to the logo of the confederation
   CHlogopath: ecussons/Logo_Schweiz_Eidgen.png
+  # path to the logo of the confederation
+  crdppflogopath: ecussons/cadastrerdppfargb.jpg
   # path and dimensions in mm of cantonal logo
   cantonlogo:
     path: ecussons/JUcompactrvb.jpg
@@ -97,3 +99,15 @@ pdf_config:
 
   # Activates (true) or not the disclaimer text on the title page of the PDF
   disclaimer: true
+
+# URL to localhost Tomcat server webapp
+print_url: http://localhost:8080/print-${vars:instanceid}/print
+
+# URL to internal instance
+localhost_url: http://geo-test.jura.ch/${vars:instanceid}
+
+# URL to internal MapServer instance
+mapserver_url: http://localhost/${vars:instanceid}/wmscrdppf
+
+# URL to WMTS getCapabilities
+wmts_getcapabilities_url: http://geo.jura.ch/main/tiles/1.0.0/WMTSCapabilities.xml

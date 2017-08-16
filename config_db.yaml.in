@@ -24,7 +24,7 @@ db_config:
       tablename: cad_bien_fonds
       schema: crdppf
       att_id: noobj
-      att_id_property: idemai
+      att_id_property: id
       att_property_number: nummai
       att_property_type: typimm
       att_property_source: source
