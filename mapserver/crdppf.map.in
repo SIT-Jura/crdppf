@@ -1013,8 +1013,8 @@ LAYER
         NAME "Zone de transport"
         EXPRESSION "Zone de transport"
         STYLE
-            COLOR 225 225 225
-            OUTLINECOLOR 225 225 225
+            COLOR 130 130 130
+            OUTLINECOLOR 130 130 130
         END
         LABEL
             TYPE TRUETYPE
