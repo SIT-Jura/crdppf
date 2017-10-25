@@ -1,6 +1,13 @@
 # WMTS server urls
 wmts_openlayers:
- mapproxyurl: ['http://mapfishtile0.jura.ch/main/tiles', 'http://mapfishtile1.jura.ch/main/tiles', 'http://mapfishtile2.jura.ch/main/tiles', 'http://mapfishtile3.jura.ch/main/tiles', 'http://mapfishtile4.jura.ch/main/tiles', 'http://mapfishtile5.jura.ch/main/tiles']
+  mapproxyurl: [
+        'http://mapfishtile0.jura.ch/main/tiles',
+        'http://mapfishtile1.jura.ch/main/tiles',
+        'http://mapfishtile2.jura.ch/main/tiles',
+        'http://mapfishtile3.jura.ch/main/tiles',
+        'http://mapfishtile4.jura.ch/main/tiles',
+        'http://mapfishtile5.jura.ch/main/tiles'
+    ]
 
 app_config:  
   # lang: ${vars:default_language}
@@ -71,7 +78,7 @@ pdf_config:
   # path to the logo of the confederation
   CHlogopath: ecussons/Logo_Schweiz_Eidgen.png
   # path to the logo of the confederation
-  crdppflogopath: ecussons/cadastrerdppfargb.jpg
+  crdppflogopath: ecussons/cadastrerdppfargb.png
   # path and dimensions in mm of cantonal logo
   cantonlogo:
     path: ecussons/JUcompactrvb.jpg
@@ -110,4 +117,4 @@ localhost_url: http://geo-test.jura.ch/${vars:instanceid}
 mapserver_url: http://localhost/${vars:instanceid}/wmscrdppf
 
 # URL to WMTS getCapabilities
-wmts_getcapabilities_url: http://geo.jura.ch/main/tiles/1.0.0/WMTSCapabilities.xml
+wmts_getcapabilities_url: https://geo.jura.ch/main/tiles/1.0.0/WMTSCapabilities.xml

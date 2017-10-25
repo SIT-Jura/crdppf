@@ -15,10 +15,6 @@ Checkout the source code with a ssh key (see https://help.github.com/articles/ge
 
     git clone git@github.com:SIT-Jura/crdppf.git
 
-or when you're not using ssh key:
-
-    git clone https://github.com/SIT-Jura/crdppf.git
-
 Get the submodule crdppf_core (https://github.com/sitn/crdppf_core.git if you'd like to get the core project too)
 
     cd crdppf
