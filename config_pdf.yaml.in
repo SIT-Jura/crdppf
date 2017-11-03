@@ -1,12 +1,12 @@
 # WMTS server urls
 wmts_openlayers:
   mapproxyurl: [
-        'http://mapfishtile0.jura.ch/main/tiles',
-        'http://mapfishtile1.jura.ch/main/tiles',
-        'http://mapfishtile2.jura.ch/main/tiles',
-        'http://mapfishtile3.jura.ch/main/tiles',
-        'http://mapfishtile4.jura.ch/main/tiles',
-        'http://mapfishtile5.jura.ch/main/tiles'
+        'https://geotile0.jura.ch/main/tiles',
+        'https://geotile1.jura.ch/main/tiles',
+        'https://geotile2.jura.ch/main/tiles',
+        'https://geotile3.jura.ch/main/tiles',
+        'https://geotile4.jura.ch/main/tiles',
+        'https://geotile5.jura.ch/main/tiles'
     ]
 
 app_config:  
@@ -111,7 +111,7 @@ pdf_config:
 print_url: http://localhost:8080/print-${vars:instanceid}/print
 
 # URL to internal instance
-localhost_url: http://geo-test.jura.ch/${vars:instanceid}
+localhost_url: http://geo.jura.ch/${vars:instanceid}
 
 # URL to internal MapServer instance
 mapserver_url: http://localhost/${vars:instanceid}/wmscrdppf
