@@ -111,7 +111,7 @@ pdf_config:
 print_url: http://localhost:8080/print-${vars:instanceid}/print
 
 # URL to internal instance
-localhost_url: http://geo.jura.ch/${vars:instanceid}
+localhost_url: http://${vars:host}/${vars:instanceid}
 
 # URL to internal MapServer instance
 mapserver_url: http://localhost/${vars:instanceid}/wmscrdppf
