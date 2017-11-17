@@ -7,6 +7,11 @@ then
 fi
 
 ./buildout/bin/buildout -c buildout_$1.cfg
+
+echo "Redemarrage tomcat"
+sudo /etc/init.d/tomcat-tomcat1 restart
+
+echo "Redemarrage apache"
 sudo apache2ctl graceful
 
 date
