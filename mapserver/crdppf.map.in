@@ -13,15 +13,15 @@ DEBUG 5
 EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
 
 WEB
-  IMAGEPATH "/tmp"
-  METADATA
-    "ows_title"                         "CRDPPF OWS server"
-    "ows_enable_request"          "*"
-    "wfs_encoding"                   "utf-8"
-    "wms_title"                        "${vars:instanceid} WMS Server"
-    "wms_onlineresource"          "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-    "wms_srs"                         "EPSG:21781" 
-  END
+    IMAGEPATH "/tmp"
+    METADATA
+        "ows_title"                  "CRDPPF OWS server"
+        "ows_enable_request"          "*"
+        "wfs_encoding"                "utf-8"
+        "wms_title"                   "${vars:instanceid} WMS Server"
+        "wms_onlineresource"          "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs"                     "EPSG:21781" 
+    END
 END
 
 IMAGETYPE png24
@@ -32,19 +32,19 @@ RESOLUTION 100
 DEFRESOLUTION 100
 
 OUTPUTFORMAT
-  NAME png24
-  DRIVER "AGG/PNG"
-  MIMETYPE "image/png"
-  IMAGEMODE "RGB"
-  EXTENSION "png"
+    NAME png24
+    DRIVER "AGG/PNG"
+    MIMETYPE "image/png"
+    IMAGEMODE "RGB"
+    EXTENSION "png"
 END
 
 OUTPUTFORMAT
-  NAME jpeg
-  DRIVER "AGG/JPEG"
-  MIMETYPE "image/jpeg"
-  EXTENSION "jpeg"
-  FORMATOPTION QUALITY=88
+    NAME jpeg
+    DRIVER "AGG/JPEG"
+    MIMETYPE "image/jpeg"
+    EXTENSION "jpeg"
+    FORMATOPTION QUALITY=88
 END
 
 PROJECTION
