@@ -15,12 +15,12 @@ EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:
 WEB
     IMAGEPATH "/tmp"
     METADATA
-        "ows_title"                  "CRDPPF OWS server"
-        "ows_enable_request"          "*"
-        "wfs_encoding"                "utf-8"
-        "wms_title"                   "${vars:instanceid} WMS Server"
-        "wms_onlineresource"          "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                     "EPSG:21781" 
+        "ows_title" "CRDPPF OWS server"
+        "ows_enable_request" "*"
+        "wfs_encoding" "utf-8"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "ESG:21781" 
     END
 END
 
@@ -52,28 +52,28 @@ PROJECTION
 END
 
 LEGEND
- STATUS ON        # Draw legend in the map
- KEYSIZE 17 10      # Define the size of the legend icon.
- LABEL            # Used only for embedded legend (in the map)
-   TYPE TRUETYPE
-   FONT "verdana"
-   COLOR 0 0 0
-   SIZE 8
-   ANTIALIAS TRUE
- END
+    STATUS ON        # Draw legend in the map
+    KEYSIZE 17 10      # Define the size of the legend icon.
+    LABEL            # Used only for embedded legend (in the map)
+        TYPE TRUETYPE
+        FONT "verdana"
+        COLOR 0 0 0
+        SIZE 8
+        ANTIALIAS TRUE
+    END
 END
 
 
- # A scalebar object is defined one level below the map object.  This object 
-  # controls how a scalebar is drawn by MapServer.  Scalebars can be embedded 
-  # in the map itself or can be created as a separate image.  It has an 
-  # associated MapServer CGI variable called "scalebar" (or [scalebar] when 
-  # used in the HTML template).
-  SCALEBAR
+# A scalebar object is defined one level below the map object.  This object 
+# controls how a scalebar is drawn by MapServer.  Scalebars can be embedded 
+# in the map itself or can be created as a separate image.  It has an 
+# associated MapServer CGI variable called "scalebar" (or [scalebar] when 
+# used in the HTML template).
+SCALEBAR
     IMAGECOLOR 255 255 255
     LABEL
-      COLOR 0 0 0
-      SIZE SMALL
+        COLOR 0 0 0
+        SIZE SMALL
     END
     STYLE 0
     SIZE 300 10
@@ -82,7 +82,7 @@ END
     INTERVALS 5
     TRANSPARENT FALSE
     STATUS OFF
-  END # Scalebar object ends
+END # Scalebar object ends
 
 LAYER
     NAME "parcelles"
@@ -91,7 +91,6 @@ LAYER
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from immeubles_canton using unique noobj using srid=21781"
     DATA "geom from crdppf.cad_bien_fonds using unique objectid using srid=21781"
     STATUS ON
     TEMPLATE "foo"
@@ -106,30 +105,25 @@ LAYER
         "wms_srs" "epsg:21781"
         "wfs_enable_request" "*"
         "gml_types" "auto"
-#        "gml_include_items" "idemai,cadastre,nummai,typimm,srfmai,source,url_terris"
-#        "gml_include_items" "commune,localite,numero,surftotal,idemai,nummai"
         "gml_include_items" "all"
     END
     PROJECTION
         "init=epsg:21781"   ##required
     END
-#    MINSCALEDENOM 0
-#    MAXSCALEDENOM 55500
 END
 
 ######################
 # RESTRICTIONS CRDPPF - début
 ######################
-
 LAYER
     NAME "r73_contenus_ponctuels"
     TYPE POINT
     METADATA
-        "ows_title"                    "r73_contenus_ponctuels"
-        "wms_srs"                     "epsg:21781"
-        "wms_title"                   "${vars:instanceid} WMS Server"
-        "wms_onlineresource"     "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                    "EPSG:21781" 
+        "ows_title" "r73_contenus_ponctuels"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -280,11 +274,11 @@ LAYER
     NAME "r73_contenus_lineaires"
     TYPE LINE
      METADATA
-        "ows_title"                   "r73_contenus_lineaires"
-        "wms_srs"                    "epsg:21781"
-        "wms_title"                  "${vars:instanceid} WMS Server"
-        "wms_onlineresource"    "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                   "EPSG:21781" 
+        "ows_title" "r73_contenus_lineaires"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -359,11 +353,11 @@ LAYER
     GROUP "r73_perimetres_superposes"
     TYPE POLYGON
     METADATA
-        "ows_title"                 "r73_perimetres_superposes"
-        "wms_srs"                   "epsg:21781"
-        "wms_title"                 "${vars:instanceid} WMS Server"
-        "wms_onlineresource"  		  "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                   "EPSG:21781" 
+        "ows_title" "r73_perimetres_superposes"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -374,9 +368,9 @@ LAYER
     CLASSITEM "trie" 
     OPACITY 90
     TEMPLATE "ttt"
-    LABELITEM 'abreviation'          
+    LABELITEM 'abreviation'
 #    LABELMINSCALEDENOM 100
-    LABELMAXSCALEDENOM 7500     
+    LABELMAXSCALEDENOM 7500
     CLASS
         NAME "Secteur avec plan spécial en vigueur"
         EXPRESSION "Secteur avec plan spécial en vigueur"
@@ -410,7 +404,7 @@ LAYER
             OUTLINECOLOR 255 255 255
         END
     END
-    CLASS                       
+    CLASS
         NAME "Périmètre de protection des vergers"
         EXPRESSION "Périmètre de protection des vergers"
         STYLE
@@ -620,11 +614,11 @@ LAYER
     TYPE line
     STATUS ON
     METADATA
-        "ows_title"                 "r73_perimetres_superposes"
-        "wms_srs"                   "epsg:21781"
-        "wms_title"                 "${vars:instanceid} WMS Server"
-        "wms_onlineresource"  		  "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                   "EPSG:21781" 
+        "ows_title" "r73_perimetres_superposes"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     PROJECTION
         "init=epsg:21781"
@@ -680,14 +674,15 @@ LAYER
 END
 
 LAYER
-    NAME "r73_zones_superposees"
+    NAME "r73_zones_superposees_2"
+    GROUP "r73_zones_superposees"
     TYPE POLYGON
     METADATA
         "ows_title" "r73_zones_superposees"
         "wms_srs" "epsg:21781"
-        "wms_title"           "${vars:instanceid} WMS Server"
+        "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"            "EPSG:21781" 
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -702,7 +697,6 @@ LAYER
         NAME "Secteur de danger élevé"
         EXPRESSION "Secteur de danger élevé"
         STYLE
-#            OUTLINECOLOR 110 110 110
             WIDTH 1
             COLOR 255 0 0
         END
@@ -711,7 +705,6 @@ LAYER
         NAME "Secteur de danger moyen"
         EXPRESSION "Secteur de danger moyen"
         STYLE
-#            OUTLINECOLOR 110 110 110
             WIDTH 1
             COLOR 0 169 230
         END
@@ -720,7 +713,6 @@ LAYER
         NAME "Secteur de danger faible"
         EXPRESSION "Secteur de danger faible"
         STYLE
-#            OUTLINECOLOR 110 110 110
             WIDTH 1
             COLOR 230 230 0
         END
@@ -750,14 +742,51 @@ LAYER
 END
 
 LAYER
+    NAME "r73_zones_superposees_1"
+    GROUP "r73_zones_superposees"
+    TYPE POLYGON
+    METADATA
+        "ows_title" "r73_zones_superposees"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
+    END
+    CONNECTIONTYPE POSTGIS
+    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    DATA "geom from crdppf.r73_zones_superposees using unique idobj using srid=21781"
+    STATUS ON
+    CLASSITEM "teneur" 
+    OPACITY 60
+    TEMPLATE "ttt"
+    CLASS
+        NAME "Danger d'effondrement"
+        EXPRESSION "Danger d'effondrement"
+        STYLE
+            COLOR 255 107 235
+            SYMBOL "hatchsymbol"
+            SIZE 8
+            WIDTH 2
+            ANGLE -45
+        END
+        STYLE
+            OUTLINECOLOR 255 107 235
+            WIDTH 1
+        END
+    END
+END
+
+LAYER
     NAME "r73_affectations_primaires"
     TYPE POLYGON
     METADATA
         "ows_title" "r73_affectations_primaires"
         "wms_srs" "epsg:21781"
-        "wms_title"           "${vars:instanceid} WMS Server"
+        "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"            "EPSG:21781" 
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -769,7 +798,7 @@ LAYER
     OPACITY 50
     TEMPLATE "ttt"
     LABELITEM 'abreviation'
-    LABELMAXSCALE 12000    
+    LABELMAXSCALE 12000
     CLASS
         NAME "Zone centre"
         EXPRESSION "Zone centre"
@@ -1049,11 +1078,11 @@ LAYER
     NAME "r87_astra_projektierungszonen_nationalstrassen"
     STATUS ON
     METADATA
-        "ows_title"                      "r87_astra_projektierungszonen_nationalstrassen"
-        "wms_srs"                    "epsg:21781"
-        "wms_title"                      "${vars:instanceid} WMS Server"
-        "wms_onlineresource"     "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                    "EPSG:21781" 
+        "ows_title" "r87_astra_projektierungszonen_nationalstrassen"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -1076,11 +1105,11 @@ LAYER
     NAME "r96_bav_projektierungszonen_eisenbahnanlagen"
     STATUS ON
     METADATA
-        "ows_title"                      "r96_bav_projektierungszonen_eisenbahnanlage"
-        "wms_srs"                    "epsg:21781"
-        "wms_title"                      "${vars:instanceid} WMS Server"
-        "wms_onlineresource"     "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                    "EPSG:21781" 
+        "ows_title" "r96_bav_projektierungszonen_eisenbahnanlage"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -1103,11 +1132,11 @@ LAYER
     NAME "r97_bav_baulinien_eisenbahnanlagen"
     STATUS ON
     METADATA
-        "ows_title"                      "r97_bav_baulinien_eisenbahnanlage"
-        "wms_srs"                    "epsg:21781"
-        "wms_title"                      "${vars:instanceid} WMS Server"
-        "wms_onlineresource"     "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                    "EPSG:21781" 
+        "ows_title" "r97_bav_baulinien_eisenbahnanlage"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -1130,11 +1159,11 @@ LAYER
     NAME "r103_bazl_projektierungszonen_flughafenanlagen"
     STATUS ON
     METADATA
-        "ows_title"                      "r103_bazl_projektierungszonen_flughafenanlagen"
-        "wms_srs"                    "epsg:21781"
-        "wms_title"                      "${vars:instanceid} WMS Server"
-        "wms_onlineresource"     "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                    "EPSG:21781" 
+        "ows_title" "r103_bazl_projektierungszonen_flughafenanlagen"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -1157,11 +1186,11 @@ LAYER
     NAME "r104_bazl_baulinien_flughafenanlagen"
     STATUS ON
     METADATA
-        "ows_title"                      "r104_bazl_baulinien_flughafenanlagen"
-        "wms_srs"                    "epsg:21781"
-        "wms_title"                      "${vars:instanceid} WMS Server"
-        "wms_onlineresource"     "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                    "EPSG:21781" 
+        "ows_title" "r104_bazl_baulinien_flughafenanlagen"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -1184,11 +1213,11 @@ LAYER
     NAME "r108_bazl_sicherheitszonenplan"
     STATUS ON
     METADATA
-        "ows_title"                      "r108_bazl_sicherheitszonenplan"
-        "wms_srs"                    "epsg:21781"
-        "wms_title"                      "${vars:instanceid} WMS Server"
-        "wms_onlineresource"     "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                    "EPSG:21781" 
+        "ows_title" "r108_bazl_sicherheitszonenplan"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -1211,11 +1240,11 @@ LAYER
     STATUS ON
     NAME "r116_sites_pollues"
     METADATA
-        "ows_title"                      "r116_sites_pollues"
-        "wms_srs"                    "epsg:21781"
-        "wms_title"                      "${vars:instanceid} WMS Server"
-        "wms_onlineresource"     "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                    "EPSG:21781" 
+        "ows_title" "r116_sites_pollues"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -1262,17 +1291,16 @@ LAYER
     NAME "r118_bazl_belastete_standorte_zivilflugplaetze_pts"
     GROUP "r118_bazl_belastete_standorte_zivilflugplaetze"
     METADATA
-        "ows_title"                   "r118_bazl_belastete_standorte_zivilflugplaetze_pts"
-        "wms_srs"                    "epsg:21781"
-        "wms_title"                  "${vars:instanceid} WMS Server"
-        "wms_onlineresource"    "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                   "EPSG:21781" 
+        "ows_title" "r118_bazl_belastete_standorte_zivilflugplaetze_pts"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    #DATA "geom from crdppf.r118_bazl_belastete_standorte_zivilflugplaetze using unique idobj using srid=21781"
     DATA "geom from (
         select *
         from crdppf.r118_bazl_belastete_standorte_zivilflugplaetze 
@@ -1296,11 +1324,11 @@ LAYER
     NAME "r118_bazl_belastete_standorte_zivilflugplaetze_poly"
     GROUP "r118_bazl_belastete_standorte_zivilflugplaetze"
     METADATA
-        "ows_title"                   "r118_bazl_belastete_standorte_zivilflugplaetze_poly"
-        "wms_srs"                    "epsg:21781"
-        "wms_title"                  "${vars:instanceid} WMS Server"
-        "wms_onlineresource"    "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                   "EPSG:21781" 
+        "ows_title" "r118_bazl_belastete_standorte_zivilflugplaetze_poly"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -1323,11 +1351,11 @@ LAYER
   STATUS ON
   NAME "r119_bav_belastete_standorte_oev"
   METADATA
-       "ows_title"                   "r119_bav_belastete_standorte_oev"
-       "wms_srs"                    "epsg:21781"
-       "wms_title"                  "${vars:instanceid} WMS Server"
-       "wms_onlineresource"    "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-       "wms_srs"                   "EPSG:21781" 
+       "ows_title" "r119_bav_belastete_standorte_oev"
+       "wms_srs" "epsg:21781"
+       "wms_title" "${vars:instanceid} WMS Server"
+       "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+       "wms_srs" "EPSG:21781" 
   END
   CONNECTIONTYPE POSTGIS
   CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
@@ -1347,11 +1375,11 @@ LAYER
     NAME "r131_zone_prot_eau"
     STATUS ON
     METADATA
-        "ows_title"                   "r131_zone_prot_eau"
-        "wms_srs"                    "epsg:21781"
-        "wms_title"                  "${vars:instanceid} WMS Server"
-        "wms_onlineresource"    "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                   "EPSG:21781" 
+        "ows_title" "r131_zone_prot_eau"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -1392,11 +1420,11 @@ LAYER
     NAME "r132_perimetre_prot_eau"
     STATUS ON
     METADATA
-        "ows_title"                   "r132_perimetre_prot_eau"
-        "wms_srs"                    "epsg:21781"
-        "wms_title"                  "${vars:instanceid} WMS Server"
-        "wms_onlineresource"    "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                   "EPSG:21781" 
+        "ows_title" "r132_perimetre_prot_eau"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -1420,7 +1448,7 @@ LAYER
             SIZE 22
             WIDTH 3
             ANGLE -45
-        END        
+        END
     END
 END
 
@@ -1430,9 +1458,9 @@ LAYER
     METADATA
         "ows_title" "r145_sens_bruit"
         "wms_srs" "epsg:21781"
-        "wms_title"           "${vars:instanceid} WMS Server"
+        "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"            "EPSG:21781"
+        "wms_srs" "EPSG:21781"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -1440,7 +1468,7 @@ LAYER
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r145_sens_bruit using unique idobj using srid=21781"
     STATUS ON
-    CLASSITEM "teneur" 
+    CLASSITEM "teneur"
     OPACITY 50
     TEMPLATE "ttt"
     CLASS
@@ -1490,10 +1518,10 @@ LAYER
     TYPE LINE
     METADATA
         "ows_title" "r157_lim_foret"
-        "wms_srs"                    "epsg:21781"
-        "wms_title"                      "${vars:instanceid} WMS Server"
-        "wms_onlineresource"     "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs"                    "EPSG:21781" 
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781" 
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
@@ -1517,8 +1545,6 @@ END
 #####################
 # RESTRICTIONS CRDPPF - fin
 #####################
-
-
 LAYER
     NAME "la3_limites_communales"
     TYPE POLYGON
@@ -1703,6 +1729,7 @@ LAYER
 #   MINSCALEDENOM 50
     MAXSCALEDENOM 2100
 END
+
 #########################################
 #### Couverture du sol noir-blanc    ####
 #########################################
@@ -1860,8 +1887,6 @@ LAYER
     DATA "geom from cadastre.cad_bien_fonds using unique objectid using srid=21781"
     TRANSPARENCY 80
     TEMPLATE "ttt"
-#   LABELITEM 'numero'
-#   LABELMAXSCALE 5500
     CLASS
         NAME "Biens-fonds"
         STYLE
