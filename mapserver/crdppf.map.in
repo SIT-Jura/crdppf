@@ -318,8 +318,8 @@ LAYER
         END
     END
     CLASS
-        NAME "Mur de pierre sèches"
-        EXPRESSION "Mur de pierre sèches"
+        NAME "Mur de pierres sèches"
+        EXPRESSION "Mur de pierres sèches"
         STYLE
             SYMBOL ligne_noir
             SIZE 10
