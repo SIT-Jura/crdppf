@@ -1147,7 +1147,7 @@ LAYER
     TEMPLATE "ttt"
     OPACITY 60
     CLASS
-        NAME "Aligenements des install. ferrovières"
+        NAME "Alignements des install. ferrovières"
         STYLE
             COLOR 220 220 0
             WIDTH 2
@@ -2287,7 +2287,7 @@ END
 #### Tronçon rue                     ####
 #########################################
 LAYER
-    NAME "cadastre_troncon_rue"    
+    NAME "cadastre_troncon_rue"
     GROUP "plan_cadastral"
     TYPE LINE
     STATUS ON
