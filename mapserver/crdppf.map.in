@@ -216,7 +216,7 @@ LAYER
     END  
     CLASS
         NAME "Site d'exploitation du fer"
-        EXPRESSION "Site exploitation du fer"
+        EXPRESSION "Site d'exploitation du fer"
         STYLE
             SYMBOL "etoile"
             SIZE 18
@@ -526,8 +526,8 @@ LAYER
         END
     END
     CLASS
-        NAME "Périmètre reservé aux eaux"
-        EXPRESSION "Périmètre reservé aux eaux"
+        NAME "Périmètre réservé aux eaux"
+        EXPRESSION "Périmètre réservé aux eaux"
         STYLE
             COLOR 0 0 255
             SYMBOL "hatchsymbol"
