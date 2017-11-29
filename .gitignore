@@ -20,3 +20,4 @@ crdppfportal/static/public/reglements/
 deploy/deploy.cfg
 deploy/hooks/post-restore-database
 mapserver/*.map
+*.pdf
