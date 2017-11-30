@@ -1745,9 +1745,11 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_objets_divers_lignes using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_objets_divers_lignes using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_objets_divers_lignes using unique objectid using srid=21781"
     CLASSITEM 'genre'
     CLASS
         NAME ""
@@ -1824,9 +1826,11 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_objets_divers_surface using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_objets_divers_surface using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_objets_divers_surface using unique objectid using srid=21781"
     CLASSITEM 'genre'
     CLASS
         NAME ""
@@ -1898,9 +1902,11 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_couverture_du_sol using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_couverture_du_sol using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_couverture_du_sol using unique objectid using srid=21781"
     TEMPLATE "ttt"
     CLASSITEM 'genre'
     CLASS
@@ -1947,14 +1953,16 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_couverture_du_sol_batiments using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_couverture_du_sol_batiments using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_couverture_du_sol_batiments using unique objectid using srid=21781"
     TEMPLATE "ttt"
     CLASS
         NAME "Bâtiment"
         STYLE
-            COLOR 200 200 200
+#            COLOR 200 200 200
             OUTLINECOLOR 130 130 130
         END
     END
@@ -1982,9 +1990,11 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_couverture_du_sol_numero_batiment using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_couverture_du_sol_numero_batiment using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_couverture_du_sol_numero_batiment using unique objectid using srid=21781"
     CLASSITEM 'numero'
     LABELITEM 'numero'
     LABELMINSCALE 0
@@ -2027,14 +2037,17 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    #CONNECTION "user=www-data password=www-data dbname=donnees host=localhost port=5432"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_bien_fonds using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_bien_fonds using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_bien_fonds using unique objectid using srid=21781"
     TRANSPARENCY 80
     TEMPLATE "ttt"
+    CLASSITEM "genre"
     CLASS
         NAME "Biens-fonds"
+        EXPRESSION "bien_fonds"
         STYLE
             WIDTH 2
             OUTLINECOLOR 0 0 0
@@ -2066,14 +2079,18 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_ddp using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_ddp using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_bien_fonds using unique objectid using srid=21781"
     TEMPLATE "ttt"
 #   LABELITEM 'numero'
 #   LABELMAXSCALE 5500
+    CLASSITEM "genre"
     CLASS
         NAME "DDP"
+        EXPRESSION "superficie"
         STYLE
             WIDTH 4
             OUTLINECOLOR 255 255 255
@@ -2110,45 +2127,15 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_pos_immeuble_ligne_auxiliaire using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_pos_immeuble_ligne_auxiliaire using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_pos_immeuble_ligne_auxiliaire using unique objectid using srid=21781"
     CLASS
         STYLE
             WIDTH 1
             OUTLINECOLOR 0 0 0
-        END
-    END
-#   MINSCALEDENOM 50
-    MAXSCALEDENOM 2600
-END
-
-LAYER
-    NAME "PosImmeuble_proj_Ligne_auxiliaire"
-    GROUP "plan_cadastral"
-    TYPE LINE
-    STATUS ON
-    METADATA
-        "ows_title" "PosImmeuble_proj_Ligne_auxiliaire"
-        "wms_srs" "epsg:21781"
-        #"gml_include_items" "all"
-        "gml_types" "auto"
-        #"wfs_enable_request" "*"
-        "gml_geometries" "geom"
-        "gml_geom_type" "line"
-    END
-    PROJECTION
-        "init=epsg:21781"
-    END
-    CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_pos_immeuble_proj_ligne_aux using unique objectid using srid=21781"
-    CLASS
-        STYLE
-            WIDTH 1
-            OUTLINECOLOR 210 0 0
         END
     END
 #   MINSCALEDENOM 50
@@ -2175,9 +2162,11 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_pos_immeuble using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_pos_immeuble using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_pos_immeuble using unique objectid using srid=21781"
     LABELITEM 'numero'
     LABELMINSCALE 0
     LABELMAXSCALE 3650
@@ -2216,9 +2205,11 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_pos_immeuble using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_pos_immeuble using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_pos_immeuble using unique objectid using srid=21781"
     LABELITEM 'numero'
     LABELMINSCALE 3650
     LABELMAXSCALE 20500
@@ -2259,9 +2250,11 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_objets_divers_ponctuel using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_objets_divers_ponctuel using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_objets_divers_ponctuel using unique objectid using srid=21781"
     CLASSITEM 'genre'
     CLASS
         NAME "arbre_isole_important"
@@ -2325,9 +2318,11 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_points_limites using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_points_limites using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_points_limites using unique objectid using srid=21781"
     TEMPLATE "ttt"
     CLASSITEM 'signe'
     CLASS
@@ -2406,9 +2401,11 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_nomenclature_noms_posnom using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_nomenclature_noms_posnom using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_nomenclature_noms_posnom using unique objectid using srid=21781"
     CLASSITEM 'categorie'
     LABELITEM 'nom'
     LABELMAXSCALE 3600
@@ -2451,9 +2448,11 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from cadastre.cad_adr_troncon_rue using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_adr_troncon_rue using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_adr_troncon_rue using unique objectid using srid=21781"
     LABELITEM 'texte'
     TEMPLATE "ttt"
     MINSCALEDENOM 50
