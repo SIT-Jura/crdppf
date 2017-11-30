@@ -9,7 +9,7 @@ fi
 ./buildout/bin/buildout -c buildout_$1.cfg
 
 echo "Redemarrage postgresql"
-sudo /etc/init.d/postgresql restart
+#sudo /etc/init.d/postgresql restart
 
 echo "Redemarrage tomcat"
 sudo /etc/init.d/tomcat-tomcat1 restart
