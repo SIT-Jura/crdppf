@@ -1201,7 +1201,7 @@ LAYER
     TEMPLATE "ttt"
     OPACITY 60
     CLASS
-        NAME "Aligenements des install. aéroportuaire"
+        NAME "Alignements des install. aéroportuaire"
         STYLE
             COLOR 0 0 180
             WIDTH 2
@@ -1227,7 +1227,7 @@ LAYER
     TYPE POLYGON
     TEMPLATE "ttt"
     CLASS
-        NAME "Zone de la sécurité des aéroports"
+        NAME "Plan de la zone de sécurité"
         STYLE
             COLOR 192 0 192
             OPACITY 45
