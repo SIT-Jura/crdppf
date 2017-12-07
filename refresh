@@ -8,6 +8,9 @@ fi
 
 ./buildout/bin/buildout -c buildout_$1.cfg
 
+echo "Suppressions des pdf sur instances rwunderlich et stage"
+rm -rf /var/sig/sitj/_crdppf_stage/*.pdf
+
 echo "Redemarrage postgresql"
 #sudo /etc/init.d/postgresql restart
 

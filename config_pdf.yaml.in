@@ -122,3 +122,6 @@ mapserver_url: http://localhost/${vars:instanceid}/wmscrdppf
 
 # URL to WMTS getCapabilities
 wmts_getcapabilities_url: https://geo.jura.ch/main/tiles/1.0.0/WMTSCapabilities.xml
+
+# Path to PDF extract archive folder
+pdf_archive_path: ${vars:pdf_archive_path}
