@@ -46,4 +46,4 @@ db_config:
       transportation_polluted_sites
       road_noise
       forest_limits
-#      forest_distances
+      forest_distances

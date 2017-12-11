@@ -1118,7 +1118,7 @@ LAYER
     TEMPLATE "ttt"
     OPACITY 60
     CLASS
-        NAME "Zones réservées des inst. ferroviaires"
+#        NAME "Zones réservées des inst. ferroviaires"
         STYLE
             COLOR 220 220 0
             OUTLINECOLOR 180 180 0
@@ -1145,7 +1145,7 @@ LAYER
     TEMPLATE "ttt"
     OPACITY 60
     CLASS
-        NAME "Alignements des inst. ferroviairess"
+#        NAME "Alignements des inst. ferroviairess"
         STYLE
             COLOR 220 220 0
             WIDTH 2
@@ -1171,14 +1171,14 @@ LAYER
     TYPE POLYGON
     TEMPLATE "ttt"
     CLASS
-        NAME "Zones réservées des inst. aéroportuaires"
-        STYLE
-            COLOR 255 170 0
-            OPACITY 70
-        END
-        STYLE
-            OUTLINECOLOR 255 170 0
-        END
+#        NAME "Zones réservées des inst. aéroportuaires"
+#        STYLE
+#            COLOR 255 170 0
+#            OPACITY 70
+#        END
+#        STYLE
+#            OUTLINECOLOR 255 170 0
+#        END
     END
 END
 
@@ -1201,11 +1201,11 @@ LAYER
     TEMPLATE "ttt"
     OPACITY 60
     CLASS
-        NAME "Alignements des install. aéroportuaire"
-        STYLE
-            COLOR 0 0 180
-            WIDTH 2
-        END
+#        NAME "Alignements des install. aéroportuaire"
+#        STYLE
+#            COLOR 0 0 180
+#            WIDTH 2
+#        END
     END
 END
 
@@ -1680,8 +1680,37 @@ LAYER
     CLASS
         NAME "Limite forestière statique"
         STYLE
-            WIDTH 6
-            OUTLINECOLOR 0 230 0
+            WIDTH 2
+            OUTLINECOLOR 230 0 0
+        END
+    END
+    TOLERANCE 5
+    TOLERANCEUNITS pixels
+END
+
+LAYER
+    NAME "r159_dist_foret"
+    TYPE LINE
+    METADATA
+        "ows_title" "r157_lim_foret"
+        "wms_srs" "epsg:21781"
+        "wms_title" "${vars:instanceid} WMS Server"
+        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_srs" "EPSG:21781"
+    END
+    CONNECTIONTYPE POSTGIS
+    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    DATA "geom from crdppf.r159_dist_foret using unique idobj using srid=21781"
+    STATUS ON
+    TEMPLATE "ttt"
+    CLASS
+#        NAME "Distance par rapport à la forêt"
+        STYLE
+            PATTERN 8 4 1 4 END
+            WIDTH 2
+            COLOR 0 255 0
         END
     END
     TOLERANCE 5
