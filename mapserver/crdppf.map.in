@@ -1535,32 +1535,24 @@ LAYER
         NAME "Zones de captage S1"
         EXPRESSION "S1"
         STYLE
-            COLOR 13 0 129
-            OUTLINECOLOR 0 0 255
+            COLOR 0 59 179
+            OUTLINECOLOR 0 0 128
         END
     END
     CLASS
         NAME "Zones rapprochées S2"
         EXPRESSION "S2"
         STYLE
-            COLOR 0 92 230
-            OUTLINECOLOR 0 0 255
+            COLOR 51 136 255
+            OUTLINECOLOR 0 0 128
         END
     END
     CLASS
         NAME "Zones éloignées S3"
         EXPRESSION "S3"
         STYLE
-            COLOR 115 178 255
-            OUTLINECOLOR 0 0 255
-        END
-    END
-    CLASS
-        NAME "Zu"
-        EXPRESSION "Zu"
-        STYLE
-            COLOR 190 255 232
-            OUTLINECOLOR 0 0 255
+            COLOR 179 210 255
+            OUTLINECOLOR 0 0 128
         END
     END
 END
@@ -1589,11 +1581,11 @@ LAYER
         EXPRESSION "Périmètre"
         STYLE
             WIDTH 1
-            OUTLINECOLOR 0 112 255
-            COLOR 0 197 255
+            OUTLINECOLOR 0 74 89
+            COLOR 157 228 242
         END
         STYLE
-            COLOR 0 130 169
+            COLOR 0 74 89
             SYMBOL "hatchsymbol"
             SIZE 10
             WIDTH 3
