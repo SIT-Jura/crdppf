@@ -2,7 +2,7 @@
 db_config:
   schema: crdppf
   topickey: crdppf.topics.topicid
-  srid: 21781
+  srid: 2056
 
   tables:
     # table containing the municipality or cadastral boundaries : NE = cadastres

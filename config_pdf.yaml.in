@@ -34,7 +34,7 @@ app_config:
     - plan_cadastral
 ##    - la3_limites_communales
   # coordinate system to be used by the wms
-  wms_srs: EPSG:21781
+  wms_srs: EPSG:2056
   # version of the wms
   wms_version: 1.1.1
   # default transparency setting of the wms

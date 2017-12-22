@@ -10,7 +10,7 @@ FONTSET fonts.txt
 
 #CONFIG "MS_ERRORFILE" "/tmp/ms.log"
 DEBUG 5
-EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+EXTENT ${extend_mapfile}
 
 WEB
     IMAGEPATH "/tmp"
@@ -20,7 +20,7 @@ WEB
         "wfs_encoding" "utf-8"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "ESG:21781"
+        "wms_srs" "ESG:${srid}"
     END
 END
 
@@ -48,7 +48,7 @@ OUTPUTFORMAT
 END
 
 PROJECTION
-  "init=epsg:21781"   ##required
+  "init=epsg:${srid}"   ##required
 END
 
 LEGEND
@@ -88,10 +88,10 @@ LAYER
     NAME "parcelles"
     TYPE POLYGON
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.cad_bien_fonds using unique objectid using srid=21781"
+    DATA "geom from crdppf.cad_bien_fonds using unique objectid using srid=${srid}"
     STATUS ON
     TEMPLATE "foo"
     CLASS
@@ -102,13 +102,13 @@ LAYER
     END
     METADATA
         "ows_title" "parcelles"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wfs_enable_request" "*"
         "gml_types" "auto"
         "gml_include_items" "all"
     END
     PROJECTION
-        "init=epsg:21781"   ##required
+        "init=epsg:${srid}"   ##required
     END
 END
 
@@ -120,16 +120,16 @@ LAYER
     TYPE POINT
     METADATA
         "ows_title" "r73_contenus_ponctuels"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r73_contenus_ponctuels using unique idobj using srid=21781"
+    DATA "geom from crdppf.r73_contenus_ponctuels using unique idobj using srid=${srid}"
     STATUS ON
     CLASSITEM "trie"
     OPACITY 60
@@ -274,16 +274,16 @@ LAYER
     TYPE LINE
      METADATA
         "ows_title" "r73_contenus_lineaires"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r73_contenus_lineaires using unique idobj using srid=21781"
+    DATA "geom from crdppf.r73_contenus_lineaires using unique idobj using srid=${srid}"
     STATUS ON
     CLASSITEM "trie"
     OPACITY 60
@@ -352,16 +352,16 @@ LAYER
     TYPE POLYGON
     METADATA
         "ows_title" "r73_perimetres_superposes"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r73_perimetres_superposes using unique idobj using srid=21781"
+    DATA "geom from crdppf.r73_perimetres_superposes using unique idobj using srid=${srid}"
     STATUS ON
     CLASSITEM "trie"
     OPACITY 90
@@ -613,19 +613,19 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "r73_perimetres_superposes"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r73_perimetres_superposes using unique idobj using srid=21781"
+    DATA "geom from crdppf.r73_perimetres_superposes using unique idobj using srid=${srid}"
     CLASSITEM "teneur"
 #    MINSCALEDENOM 7500
     MAXSCALEDENOM 25000
@@ -677,16 +677,16 @@ LAYER
     TYPE POLYGON
     METADATA
         "ows_title" "r73_zones_superposees"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r73_zones_superposees using unique idobj using srid=21781"
+    DATA "geom from crdppf.r73_zones_superposees using unique idobj using srid=${srid}"
     STATUS ON
     CLASSITEM "teneur"
     OPACITY 60
@@ -745,16 +745,16 @@ LAYER
     TYPE POLYGON
     METADATA
         "ows_title" "r73_zones_superposees"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r73_zones_superposees using unique idobj using srid=21781"
+    DATA "geom from crdppf.r73_zones_superposees using unique idobj using srid=${srid}"
     STATUS ON
     CLASSITEM "teneur"
     OPACITY 60
@@ -781,16 +781,16 @@ LAYER
     TYPE POLYGON
     METADATA
         "ows_title" "r73_affectations_primaires"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r73_affectations_primaires using unique idobj using srid=21781"
+    DATA "geom from crdppf.r73_affectations_primaires using unique idobj using srid=${srid}"
     STATUS ON
     CLASSITEM "trie"
     OPACITY 50
@@ -1077,16 +1077,16 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "r87_astra_projektierungszonen_nationalstrassen"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r87_astra_projektierungszonen_nationalstrassen using unique idobj using srid=21781"
+    DATA "geom from crdppf.r87_astra_projektierungszonen_nationalstrassen using unique idobj using srid=${srid}"
     TYPE POLYGON
     TEMPLATE "ttt"
     OPACITY 60
@@ -1104,16 +1104,16 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "r96_bav_projektierungszonen_eisenbahnanlage"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r96_bav_projektierungszonen_eisenbahnanlagen using unique idobj using srid=21781"
+    DATA "geom from crdppf.r96_bav_projektierungszonen_eisenbahnanlagen using unique idobj using srid=${srid}"
     TYPE POLYGON
     TEMPLATE "ttt"
     OPACITY 60
@@ -1131,16 +1131,16 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "r97_bav_baulinien_eisenbahnanlage"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r97_bav_baulinien_eisenbahnanlagen using unique idobj using srid=21781"
+    DATA "geom from crdppf.r97_bav_baulinien_eisenbahnanlagen using unique idobj using srid=${srid}"
     TYPE LINE
     TEMPLATE "ttt"
     OPACITY 60
@@ -1158,16 +1158,16 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "r103_bazl_projektierungszonen_flughafenanlagen"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r103_bazl_projektierungszonen_flughafenanlagen using unique idobj using srid=21781"
+    DATA "geom from crdppf.r103_bazl_projektierungszonen_flughafenanlagen using unique idobj using srid=${srid}"
     TYPE POLYGON
     TEMPLATE "ttt"
     CLASS
@@ -1187,16 +1187,16 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "r104_bazl_baulinien_flughafenanlagen"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r104_bazl_baulinien_flughafenanlagen using unique idobj using srid=21781"
+    DATA "geom from crdppf.r104_bazl_baulinien_flughafenanlagen using unique idobj using srid=${srid}"
     TYPE LINE
     TEMPLATE "ttt"
     OPACITY 60
@@ -1214,16 +1214,16 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "r108_bazl_sicherheitszonenplan"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r108_bazl_sicherheitszonenplan using unique idobj using srid=21781"
+    DATA "geom from crdppf.r108_bazl_sicherheitszonenplan using unique idobj using srid=${srid}"
     TYPE POLYGON
     TEMPLATE "ttt"
     CLASS
@@ -1243,16 +1243,16 @@ LAYER
     NAME "r116_sites_pollues"
     METADATA
         "ows_title" "r116_sites_pollues"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r116_sites_pollues using unique idobj using srid=21781"
+    DATA "geom from crdppf.r116_sites_pollues using unique idobj using srid=${srid}"
     TYPE POLYGON
     CLASSITEM "codegenre"
     TEMPLATE "ttt"
@@ -1301,16 +1301,16 @@ LAYER
     TYPE POINT
     METADATA
         "ows_title" "r118_bazl_belastete_standorte_zivilflugplaetze_pts"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r118_bazl_belastete_standorte_zivilflugplaetze_points using unique idobj using srid=21781"
+    DATA "geom from crdppf.r118_bazl_belastete_standorte_zivilflugplaetze_points using unique idobj using srid=${srid}"
     STATUS ON
     CLASSITEM "codegenre"
     OPACITY 60
@@ -1403,16 +1403,16 @@ LAYER
     GROUP "r118_bazl_belastete_standorte_zivilflugplaetze"
     METADATA
         "ows_title" "r118_bazl_belastete_standorte_zivilflugplaetze_poly"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r118_bazl_belastete_standorte_zivilflugplaetze using unique idobj using srid=21781"
+    DATA "geom from crdppf.r118_bazl_belastete_standorte_zivilflugplaetze using unique idobj using srid=${srid}"
     TYPE POLYGON
     TEMPLATE "ttt"
     CLASSITEM "codegenre"
@@ -1461,15 +1461,15 @@ LAYER
     NAME "r119_bav_belastete_standorte_oev"
     METADATA
         "ows_title" "r119_bav_belastete_standorte_oev"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r119_bav_belastete_standorte_oev using unique idobj using srid=21781"
+    DATA "geom from crdppf.r119_bav_belastete_standorte_oev using unique idobj using srid=${srid}"
     TYPE POLYGON
     TEMPLATE "ttt"
     CLASSITEM "teneur"
@@ -1517,16 +1517,16 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "r131_zone_prot_eau"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r131_zone_prot_eau using unique idobj using srid=21781"
+    DATA "geom from crdppf.r131_zone_prot_eau using unique idobj using srid=${srid}"
     TYPE POLYGON
     TEMPLATE "ttt"
     OPACITY 60
@@ -1562,16 +1562,16 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "r132_perimetre_prot_eau"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r132_perimetre_prot_eau using unique idobj using srid=21781"
+    DATA "geom from crdppf.r132_perimetre_prot_eau using unique idobj using srid=${srid}"
     TYPE POLYGON
     TEMPLATE "ttt"
     OPACITY 60
@@ -1599,16 +1599,16 @@ LAYER
     TYPE POLYGON
     METADATA
         "ows_title" "r145_sens_bruit"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r145_sens_bruit using unique idobj using srid=21781"
+    DATA "geom from crdppf.r145_sens_bruit using unique idobj using srid=${srid}"
     STATUS ON
     CLASSITEM "teneur"
     OPACITY 50
@@ -1656,16 +1656,16 @@ LAYER
     TYPE LINE
     METADATA
         "ows_title" "r157_lim_foret"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r157_lim_foret using unique idobj using srid=21781"
+    DATA "geom from crdppf.r157_lim_foret using unique idobj using srid=${srid}"
     STATUS ON
     TEMPLATE "ttt"
     CLASSITEM "teneur"
@@ -1685,16 +1685,16 @@ LAYER
     TYPE LINE
     METADATA
         "ows_title" "r157_lim_foret"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "wms_title" "${vars:instanceid} WMS Server"
         "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r159_dist_foret using unique idobj using srid=21781"
+    DATA "geom from crdppf.r159_dist_foret using unique idobj using srid=${srid}"
     STATUS ON
     TEMPLATE "ttt"
     CLASS
@@ -1716,10 +1716,10 @@ LAYER
     NAME "la3_limites_communales"
     TYPE POLYGON
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from general.la3_limites_communales using unique numcom using srid=21781"
+    DATA "geom from general.la3_limites_communales using unique numcom using srid=${srid}"
     STATUS ON
     CLASS
         NAME "Limites communales"
@@ -1729,10 +1729,10 @@ LAYER
     END
     METADATA
         "ows_title" "la3_limites_communales"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
     END
     PROJECTION
-        "init=epsg:21781"   ##required
+        "init=epsg:${srid}"   ##required
     END
 END
 
@@ -1754,7 +1754,7 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "cadastre_objets_divers_lignes"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         #"gml_include_items" "all"
         "gml_types" "auto"
         #"wfs_enable_request" "*"
@@ -1762,15 +1762,15 @@ LAYER
         "gml_geom_type" "line"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_objets_divers_lignes using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_objets_divers_lignes using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_objets_divers_lignes using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_objets_divers_lignes using unique objectid using srid=${srid}"
     CLASSITEM 'genre'
     CLASS
         NAME ""
@@ -1835,7 +1835,7 @@ LAYER
     TYPE POLYGON
     METADATA
         "ows_title" "cadastre_objets_divers_surface"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         #"gml_include_items" "all"
         "gml_types" "auto"
         #"wfs_enable_request" "*"
@@ -1843,15 +1843,15 @@ LAYER
         "gml_geom_type" "polygon"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_objets_divers_surface using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_objets_divers_surface using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_objets_divers_surface using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_objets_divers_surface using unique objectid using srid=${srid}"
     CLASSITEM 'genre'
     CLASS
         NAME ""
@@ -1911,7 +1911,7 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "cadastre_couverture_du_sol_nb"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "gml_include_items" "genre_type"
         "gml_types" "auto"
         "wfs_enable_request" "*"
@@ -1919,15 +1919,15 @@ LAYER
         "gml_geom_type" "polygon"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_couverture_du_sol using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_couverture_du_sol using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_couverture_du_sol using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_couverture_du_sol using unique objectid using srid=${srid}"
     TEMPLATE "ttt"
     CLASSITEM 'genre'
     CLASS
@@ -1961,7 +1961,7 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "Batiment"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "gml_include_items" "genre_type,regbl_egid"
         "gml_types" "auto"
         "wfs_enable_request" "*"
@@ -1970,15 +1970,15 @@ LAYER
         "gml_featureid" "regbl_egid"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_couverture_du_sol_batiments using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_couverture_du_sol_batiments using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_couverture_du_sol_batiments using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_couverture_du_sol_batiments using unique objectid using srid=${srid}"
     TEMPLATE "ttt"
     CLASS
         NAME "Bâtiment"
@@ -1999,7 +1999,7 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "Numero de batiment"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         #"gml_include_items" "all"
         "gml_types" "auto"
         #"wfs_enable_request" "*"
@@ -2007,15 +2007,15 @@ LAYER
         "gml_geom_type" "point"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_couverture_du_sol_numero_batiment using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_couverture_du_sol_numero_batiment using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_couverture_du_sol_numero_batiment using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_couverture_du_sol_numero_batiment using unique objectid using srid=${srid}"
     CLASSITEM 'numero'
     LABELITEM 'numero'
     LABELMINSCALE 0
@@ -2045,7 +2045,7 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "cadastre_bienfond"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "gml_include_items" "all"
         "gml_types" "auto"
         "wfs_enable_request" "*"
@@ -2054,15 +2054,15 @@ LAYER
         "gml_featureid" "nolocalite_noparcelle"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_bien_fonds using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_bien_fonds using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_bien_fonds using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_bien_fonds using unique objectid using srid=${srid}"
     TRANSPARENCY 80
     TEMPLATE "ttt"
     CLASSITEM "genre"
@@ -2088,7 +2088,7 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "cadastre_ddp"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "gml_include_items" "commune,localite,numero,url_rf,date_cadastre,geometre_conservateur,,egris_egrid"
         "gml_types" "auto"
         "wfs_enable_request" "*"
@@ -2096,15 +2096,15 @@ LAYER
         "gml_geom_type" "polygon"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_ddp using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_bien_fonds using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_ddp using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_bien_fonds using unique objectid using srid=${srid}"
     TEMPLATE "ttt"
 #   LABELITEM 'numero'
 #   LABELMAXSCALE 5500
@@ -2136,7 +2136,7 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "PosImmeuble_Ligne_auxiliaire"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         #"gml_include_items" "all"
         "gml_types" "auto"
         #"wfs_enable_request" "*"
@@ -2144,15 +2144,15 @@ LAYER
         "gml_geom_type" "line"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_pos_immeuble_ligne_auxiliaire using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_pos_immeuble_ligne_auxiliaire using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_pos_immeuble_ligne_auxiliaire using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_pos_immeuble_ligne_auxiliaire using unique objectid using srid=${srid}"
     CLASS
         STYLE
             WIDTH 1
@@ -2171,7 +2171,7 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "cadastre_pos_immeuble"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         #"gml_include_items" "commune,localite,numero,superficie,surface_rev_dur,surface_verte,surface_eau,surface_boise,surface_sans_veg,url_n_comp,url_rf,date_cadastre,geometre_conservateur"
         "gml_types" "auto"
         #"wfs_enable_request" "*"
@@ -2179,15 +2179,15 @@ LAYER
         "gml_geom_type" "annotation"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_pos_immeuble using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_pos_immeuble using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_pos_immeuble using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_pos_immeuble using unique objectid using srid=${srid}"
     LABELITEM 'numero'
     LABELMINSCALE 0
     LABELMAXSCALE 3650
@@ -2214,7 +2214,7 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "cadastre_pos_immeuble"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         #"gml_include_items" "commune,localite,numero,superficie,surface_rev_dur,surface_verte,surface_eau,surface_boise,surface_sans_veg,url_n_comp,url_rf,date_cadastre,geometre_conservateur"
         "gml_types" "auto"
         #"wfs_enable_request" "*"
@@ -2222,15 +2222,15 @@ LAYER
         "gml_geom_type" "annotation"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_pos_immeuble using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_pos_immeuble using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_pos_immeuble using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_pos_immeuble using unique objectid using srid=${srid}"
     LABELITEM 'numero'
     LABELMINSCALE 3650
     LABELMAXSCALE 20500
@@ -2259,7 +2259,7 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "cadastre_objets_divers_ponctuels"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         #"gml_include_items" "all"
         "gml_types" "auto"
         #"wfs_enable_request" "*"
@@ -2267,15 +2267,15 @@ LAYER
         "gml_geom_type" "point"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_objets_divers_ponctuel using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_objets_divers_ponctuel using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_objets_divers_ponctuel using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_objets_divers_ponctuel using unique objectid using srid=${srid}"
     CLASSITEM 'genre'
     CLASS
         NAME "arbre_isole_important"
@@ -2327,7 +2327,7 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "cadastre_points_limites"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         "gml_include_items" "signe,x,y"
         "gml_types" "auto"
         "wfs_enable_request" "*"
@@ -2335,15 +2335,15 @@ LAYER
         "gml_geom_type" "point"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_points_limites using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_points_limites using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_points_limites using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_points_limites using unique objectid using srid=${srid}"
     TEMPLATE "ttt"
     CLASSITEM 'signe'
     CLASS
@@ -2412,21 +2412,21 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "cadastre_nomenclature_nom_local"
-        "wms_srs" "EPSG:21781"
+        "wms_srs" "EPSG:${srid}"
         "gml_types" "auto"
         "gml_geometries" "geom"
         "gml_geom_type" "point"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_nomenclature_noms_posnom using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_nomenclature_noms_posnom using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_nomenclature_noms_posnom using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_nomenclature_noms_posnom using unique objectid using srid=${srid}"
     CLASSITEM 'categorie'
     LABELITEM 'nom'
     LABELMAXSCALE 3600
@@ -2457,7 +2457,7 @@ LAYER
     STATUS ON
     METADATA
         "ows_title" "cadastre_troncon_rue"
-        "wms_srs" "epsg:21781"
+        "wms_srs" "epsg:${srid}"
         #"gml_include_items" "all"
         "gml_types" "auto"
         #"wfs_enable_request" "*"
@@ -2465,15 +2465,15 @@ LAYER
         "gml_geom_type" "line"
     END
     PROJECTION
-        "init=epsg:21781"
+        "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
-    EXTENT ${vars:mapExtentMinX} ${vars:mapExtentMinY} ${vars:mapExtentMaxX} ${vars:mapExtentMaxY}
+    EXTENT ${extend_mapfile}
 #    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
     CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-#    DATA "geom from cadastre.cad_adr_troncon_rue using unique objectid using srid=21781"
-    DATA "geom from crdppf.cad_adr_troncon_rue using unique objectid using srid=21781"
+#    DATA "geom from cadastre.cad_adr_troncon_rue using unique objectid using srid=${srid}"
+    DATA "geom from crdppf.cad_adr_troncon_rue using unique objectid using srid=${srid}"
     LABELITEM 'texte'
     TEMPLATE "ttt"
     MINSCALEDENOM 50
