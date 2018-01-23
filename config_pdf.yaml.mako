@@ -9,8 +9,7 @@ wmts_openlayers:
         'https://geotile5.jura.ch/main/tiles'
     ]
 
-app_config:  
-  # lang: ${vars:default_language}
+app_config:
   # defaultfontfamily: Arial
   # topics provided by the confederation
   ch_topics: ['R087','R096','R097','R103','R104','R108','R118','R119']
@@ -33,6 +32,8 @@ app_config:
     - parcelles
     - plan_cadastral
 ##    - la3_limites_communales
+  map_buffer: 1.3
+  
   # coordinate system to be used by the wms
   wms_srs: EPSG:2056
   # version of the wms
@@ -45,7 +46,7 @@ app_config:
 # Parameters for the PDF extract layout - only modify if you know what you do (may affect the layout)!! 
 pdf_config:
   # default  language of the pdf extract
-  defaultlanguage: ${vars:default_language}
+  defaultlanguage: ${default_language}
   # Page format of the PDF extract
   pdfformat: A4
   # Page orientation of the PDF extract
@@ -112,16 +113,16 @@ pdf_config:
   disclaimer: true
 
 # URL to localhost Tomcat server webapp
-print_url: http://localhost:8080/print-${vars:instanceid}/print
+print_url: http://localhost:8080/print-${instanceid}/print
 
 # URL to internal instance
-localhost_url: http://${vars:host}/${vars:instanceid}
+localhost_url: http://${host}/${instanceid}
 
 # URL to internal MapServer instance
-mapserver_url: http://localhost/${vars:instanceid}/wmscrdppf
+mapserver_url: http://localhost/${instanceid}/wmscrdppf
 
 # URL to WMTS getCapabilities
 wmts_getcapabilities_url: https://geo.jura.ch/main/tiles/1.0.0/WMTSCapabilities.xml
 
 # Path to PDF extract archive folder
-pdf_archive_path: ${vars:pdf_archive_path}
+pdf_archive_path: ${pdf_archive_path}

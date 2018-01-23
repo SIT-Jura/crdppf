@@ -6,17 +6,26 @@ then
     exit 1
 fi
 
-./buildout/bin/buildout -c buildout_$1.cfg
+##echo ""
+##echo "Arrêt tomcat"
+##sudo /etc/init.d/tomcat-tomcat1 stop
+##
+##
+make -f $1.mk build
 
+echo ""
 echo "Suppressions des pdf sur instances rwunderlich et stage"
 rm -rf /var/sig/sitj/_crdppf_prov/*.pdf
 
-echo "Redemarrage postgresql"
+#echo ""
+#echo "Redemarrage postgresql"
 #sudo /etc/init.d/postgresql restart
 
+echo ""
 echo "Redemarrage tomcat"
 sudo /etc/init.d/tomcat-tomcat1 restart
 
+echo ""
 echo "Redemarrage apache"
 sudo apache2ctl graceful
 

@@ -18,8 +18,8 @@ WEB
         "ows_title" "CRDPPF OWS server"
         "ows_enable_request" "*"
         "wfs_encoding" "utf-8"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
         "wms_srs" "ESG:${srid}"
     END
 END
@@ -89,7 +89,7 @@ LAYER
     TYPE POLYGON
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.cad_bien_fonds using unique objectid using srid=${srid}"
     STATUS ON
@@ -121,13 +121,12 @@ LAYER
     METADATA
         "ows_title" "r73_contenus_ponctuels"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r73_contenus_ponctuels using unique idobj using srid=${srid}"
     STATUS ON
@@ -275,13 +274,12 @@ LAYER
      METADATA
         "ows_title" "r73_contenus_lineaires"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r73_contenus_lineaires using unique idobj using srid=${srid}"
     STATUS ON
@@ -353,13 +351,12 @@ LAYER
     METADATA
         "ows_title" "r73_perimetres_superposes"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r73_perimetres_superposes using unique idobj using srid=${srid}"
     STATUS ON
@@ -614,16 +611,15 @@ LAYER
     METADATA
         "ows_title" "r73_perimetres_superposes"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     PROJECTION
         "init=epsg:${srid}"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r73_perimetres_superposes using unique idobj using srid=${srid}"
     CLASSITEM "teneur"
@@ -678,13 +674,12 @@ LAYER
     METADATA
         "ows_title" "r73_zones_superposees"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r73_zones_superposees using unique idobj using srid=${srid}"
     STATUS ON
@@ -746,13 +741,12 @@ LAYER
     METADATA
         "ows_title" "r73_zones_superposees"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r73_zones_superposees using unique idobj using srid=${srid}"
     STATUS ON
@@ -782,13 +776,12 @@ LAYER
     METADATA
         "ows_title" "r73_affectations_primaires"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r73_affectations_primaires using unique idobj using srid=${srid}"
     STATUS ON
@@ -1078,13 +1071,12 @@ LAYER
     METADATA
         "ows_title" "r87_astra_projektierungszonen_nationalstrassen"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r87_astra_projektierungszonen_nationalstrassen using unique idobj using srid=${srid}"
     TYPE POLYGON
@@ -1105,13 +1097,12 @@ LAYER
     METADATA
         "ows_title" "r96_bav_projektierungszonen_eisenbahnanlage"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r96_bav_projektierungszonen_eisenbahnanlagen using unique idobj using srid=${srid}"
     TYPE POLYGON
@@ -1132,13 +1123,12 @@ LAYER
     METADATA
         "ows_title" "r97_bav_baulinien_eisenbahnanlage"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r97_bav_baulinien_eisenbahnanlagen using unique idobj using srid=${srid}"
     TYPE LINE
@@ -1159,13 +1149,12 @@ LAYER
     METADATA
         "ows_title" "r103_bazl_projektierungszonen_flughafenanlagen"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r103_bazl_projektierungszonen_flughafenanlagen using unique idobj using srid=${srid}"
     TYPE POLYGON
@@ -1188,13 +1177,12 @@ LAYER
     METADATA
         "ows_title" "r104_bazl_baulinien_flughafenanlagen"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r104_bazl_baulinien_flughafenanlagen using unique idobj using srid=${srid}"
     TYPE LINE
@@ -1215,13 +1203,12 @@ LAYER
     METADATA
         "ows_title" "r108_bazl_sicherheitszonenplan"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r108_bazl_sicherheitszonenplan using unique idobj using srid=${srid}"
     TYPE POLYGON
@@ -1244,13 +1231,12 @@ LAYER
     METADATA
         "ows_title" "r116_sites_pollues"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r116_sites_pollues using unique idobj using srid=${srid}"
     TYPE POLYGON
@@ -1302,13 +1288,12 @@ LAYER
     METADATA
         "ows_title" "r118_bazl_belastete_standorte_zivilflugplaetze_pts"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r118_bazl_belastete_standorte_zivilflugplaetze_points using unique idobj using srid=${srid}"
     STATUS ON
@@ -1404,13 +1389,12 @@ LAYER
     METADATA
         "ows_title" "r118_bazl_belastete_standorte_zivilflugplaetze_poly"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r118_bazl_belastete_standorte_zivilflugplaetze using unique idobj using srid=${srid}"
     TYPE POLYGON
@@ -1462,12 +1446,11 @@ LAYER
     METADATA
         "ows_title" "r119_bav_belastete_standorte_oev"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r119_bav_belastete_standorte_oev using unique idobj using srid=${srid}"
     TYPE POLYGON
@@ -1518,13 +1501,12 @@ LAYER
     METADATA
         "ows_title" "r131_zone_prot_eau"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r131_zone_prot_eau using unique idobj using srid=${srid}"
     TYPE POLYGON
@@ -1563,13 +1545,12 @@ LAYER
     METADATA
         "ows_title" "r132_perimetre_prot_eau"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r132_perimetre_prot_eau using unique idobj using srid=${srid}"
     TYPE POLYGON
@@ -1600,13 +1581,12 @@ LAYER
     METADATA
         "ows_title" "r145_sens_bruit"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r145_sens_bruit using unique idobj using srid=${srid}"
     STATUS ON
@@ -1657,13 +1637,12 @@ LAYER
     METADATA
         "ows_title" "r157_lim_foret"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r157_lim_foret using unique idobj using srid=${srid}"
     STATUS ON
@@ -1686,13 +1665,12 @@ LAYER
     METADATA
         "ows_title" "r157_lim_foret"
         "wms_srs" "epsg:${srid}"
-        "wms_title" "${vars:instanceid} WMS Server"
-        "wms_onlineresource" "http://${vars:host}/${vars:instanceid}/wmscrdppf"
-        "wms_srs" "EPSG:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from crdppf.r159_dist_foret using unique idobj using srid=${srid}"
     STATUS ON
@@ -1717,7 +1695,7 @@ LAYER
     TYPE POLYGON
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
     DATA "geom from general.la3_limites_communales using unique numcom using srid=${srid}"
     STATUS ON
@@ -1766,8 +1744,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_objets_divers_lignes using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_objets_divers_lignes using unique objectid using srid=${srid}"
@@ -1847,8 +1825,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_objets_divers_surface using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_objets_divers_surface using unique objectid using srid=${srid}"
@@ -1923,8 +1901,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_couverture_du_sol using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_couverture_du_sol using unique objectid using srid=${srid}"
@@ -1974,8 +1952,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_couverture_du_sol_batiments using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_couverture_du_sol_batiments using unique objectid using srid=${srid}"
@@ -2011,8 +1989,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_couverture_du_sol_numero_batiment using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_couverture_du_sol_numero_batiment using unique objectid using srid=${srid}"
@@ -2058,8 +2036,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_bien_fonds using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_bien_fonds using unique objectid using srid=${srid}"
@@ -2100,8 +2078,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_ddp using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_bien_fonds using unique objectid using srid=${srid}"
@@ -2148,8 +2126,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_pos_immeuble_ligne_auxiliaire using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_pos_immeuble_ligne_auxiliaire using unique objectid using srid=${srid}"
@@ -2183,8 +2161,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_pos_immeuble using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_pos_immeuble using unique objectid using srid=${srid}"
@@ -2226,8 +2204,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_pos_immeuble using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_pos_immeuble using unique objectid using srid=${srid}"
@@ -2271,8 +2249,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_objets_divers_ponctuel using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_objets_divers_ponctuel using unique objectid using srid=${srid}"
@@ -2339,8 +2317,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_points_limites using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_points_limites using unique objectid using srid=${srid}"
@@ -2422,8 +2400,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_nomenclature_noms_posnom using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_nomenclature_noms_posnom using unique objectid using srid=${srid}"
@@ -2469,8 +2447,8 @@ LAYER
     END
     CONNECTIONTYPE POSTGIS
     EXTENT ${extend_mapfile}
-#    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db_donnees} host=${vars:dbhost} port=${vars:dbport}"
-    CONNECTION "user=${vars:dbuser} password=${vars:dbpassword} dbname=${vars:db} host=${vars:dbhost} port=${vars:dbport}"
+#    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db_donnees} host=${dbhost} port=${dbport}"
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_adr_troncon_rue using unique objectid using srid=${srid}"
     DATA "geom from crdppf.cad_adr_troncon_rue using unique objectid using srid=${srid}"
