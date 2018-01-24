@@ -16,3 +16,4 @@ crdppfportal/static/public/pdf/*.pdf
 crdppfportal/static/public/reglements/
 mapserver/*.map
 *.pdf
+pyramid_oereb_standard.yml

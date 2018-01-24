@@ -1,6 +1,9 @@
 [app:main]
 use = egg:crdppfportal
 
+pyramid_oereb.cfg.file = ${directory}/pyramid_oereb_standard.yml
+pyramid_oereb.cfg.section = pyramid_oereb
+
 pyramid.reload_templates = false
 pyramid.debug_authorization = false
 pyramid.debug_notfound = false

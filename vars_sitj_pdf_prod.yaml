@@ -17,6 +17,8 @@ vars:
     db: crdppf
     # database donnees
     db_donnees: donnees
+    # database db_pyramid
+    db_pyramid_oereb: pyramid_oereb
 
     # Application configuration
     yaml_dbconfig_file: config_db.yaml
