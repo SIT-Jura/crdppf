@@ -181,7 +181,7 @@ pyramid_oereb:
   real_estate:
     view_service:
       # WMS URL to query the plan for land register
-      reference_wms: https://geo-test.jura.ch/rwunderlich/wsgi/mapserv_proxy?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&STYLES=default&SRS=EPSG:2056&BBOX=2475000,1065000,2850000,1300000&WIDTH=493&HEIGHT=280&FORMAT=image/png&LAYERS=plan_cadastral_crdppf
+      reference_wms: https://geo.jura.ch/main/wsgi/mapserv_proxy?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&STYLES=default&SRS=EPSG:2056&BBOX=2475000,1065000,2850000,1300000&WIDTH=493&HEIGHT=280&FORMAT=image/png&LAYERS=plan_cadastral_crdppf
       #reference_wms: https://sitnssl.ne.ch/mapproxy95/service?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&STYLES=default&SRS=EPSG:2056&BBOX=2475000,1065000,2850000,1300000&WIDTH=493&HEIGHT=280&FORMAT=image/png&LAYERS=plan_cadastral_c2c
       #reference_wms: https://sitnssl.ne.ch/dev_crdppf/ogcproxy?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&STYLES=default&SRS=EPSG:2056&BBOX=2475000,1065000,2850000,1300000&WIDTH=493&HEIGHT=280&TRANSPARENT=true&FORMAT=image/png&LAYERS=mo6_couverture_sol_nb,mo22_batiments,mo9_immeubles
       #reference_wms: https://wms.geo.admin.ch/?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&STYLES=default&SRS=EPSG:2056&BBOX=2475000,1065000,2850000,1300000&WIDTH=493&HEIGHT=280&FORMAT=image/png&LAYERS=ch.swisstopo-vd.amtliche-vermessung
