@@ -1,8 +1,6 @@
 CRDPPF Portal
 ============
 
-# Getting started
-
 Repértoire privé
 
     cd
@@ -11,75 +9,24 @@ Répertoire instance principale
     
     cd /var/www/vhosts/sitj/private
   
-Checkout the source code with a ssh key (see https://help.github.com/articles/generating-ssh-keys):
+Téléchargé le projet  GitHub
 
     git clone git@github.com:SIT-Jura/crdppf.git
 
-Get the submodule crdppf_core (https://github.com/sitn/crdppf_core.git if you'd like to get the core project too)
+Télécharger crdppf_core
 
     cd crdppf
-    git submodule update --init
-    
-Once it is installed get all the libraries of the submodule (ext, openlayers, ...)
-
-    cd crdppf_core
-    git submodule update --init
-     
-maybe a 
-
-    git submodule foreach git submodule update --init
-
-##Bootstrap and buildout
-Not that you have to fix the setuptool and zc.buildout versions regarding what
-is written in the version file
-https://github.com/sitn/crdppf_core/blob/master/versions.cfg:
-
-    cd ..
-    python bootstrap-buildout.py -v 2.5.0  --setuptools-version 16.0
+    git clone git@github.com:sitn/crdppf_core.git
 
 After the installation put the directoriy crdpp in W
 
     cd ..
     chmod -R o+w crdppf
 
-# Create your own buildout file by:
-* Rename the new file `buildout_<user>.cfg`
-* Open this file in a text editor
-* Erase all sections except the `[vars]` section
-* In the `[vars]` section, delete all lines which do not contain `overwrite_me`
-* At the top of the file, add the extend instruction:
+Build
 
-```
-[buildout]
-extends = buildout.cfg
-```
-
-Adapt the `overwrite_me` values to your environment:
-* `mapproxyurl` has to be a single or a list of WMTS URLs (like 'http://wmts1', 'http://wmts2', ...)
-* If you do not set `proxy_enabled` to True, then you do not need to set the four remaining (`proxy_user`, `proxy_pass`, `proxy_server`, `proxy_port`).
-
-Run buildout
-
-    ./buildout/bin/buildout -c buildout_<user>.cfg
-
-or
-    ./refresh xxxx
-
-Or, copy-paste and adapt `buildout_rwunderlich.cfg`
-Change 
-
-    instanceid = xxxx
-    
-This variable can't the same as another instance existance
-
-# Change in crdppf_core (not in variable)
-Changement a effectuer dans crdppf_core en attendant que cela passe en variable dans le projet NE
-Plus de modifications depuis la version 1.1.0         
-
-crdppf/crdppf_core/crdppf/templates/base/index.mako
-Ajouter
-  
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    cd crdppf
+    make -f <user>.mk build
 
 # Upgrade and update crdppf_core
 
@@ -107,4 +54,3 @@ Update and upgrade:
 
 <tag> is the version of crdppf_core (ex: 1.0.7) 
      
-Now you should be up to date and ready to (re)build the application. Don't forget to include the project in the Apache configuration and to restart.
