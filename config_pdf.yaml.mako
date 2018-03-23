@@ -32,7 +32,7 @@ app_config:
     - parcelles
     - plan_cadastral
 ##    - la3_limites_communales
-  map_buffer: 1.3
+  map_buffer: 1.45
   
   # coordinate system to be used by the wms
   wms_srs: EPSG:2056
