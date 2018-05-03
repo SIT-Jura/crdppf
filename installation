@@ -14,9 +14,32 @@ cd ..
 cd crdppf
 git clone git@github.com:sitn/crdppf_core.git
 
-cd ..
+Attention, il faudra mettre une partie du core, voir ci-dessous
+
 cd ..
 chmod -R o+w crdppf
 
 cd crdppf
 make -f <user>.mk build
+
+Adaptation à faire pour pyramid oereb v0.8
+setup.py
+-    'pyramid_oereb'
++    'pyramid_oereb[recommend]==1.1.0'
+
+crdppf_core\CONST_versions.txt
+-GeoAlchemy2==0.4.0
++GeoAlchemy2==0.4.2
+-SQLAlchemy==1.1.15
++SQLAlchemy==1.2.6
+-psycopg2==2.7.3.2
++psycopg2==2.7.4
+-pyramid-debugtoolbar==4.3
++pyramid-debugtoolbar==4.4
+-simplejson==3.13.0
++simplejson==3.13.2
+-transaction==2.1.2
++transaction==2.2.1
+-zope.sqlalchemy==0.7.7
++zope.sqlalchemy==1.0
+
