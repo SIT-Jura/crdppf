@@ -107,7 +107,7 @@ pdf_config:
   signature: false
 
   # Allows to activate (true) or deactivate pilote phase text
-  pilotphase: true
+  pilotphase: false
 
   # Activates (true) or not the disclaimer text on the title page of the PDF
   disclaimer: true
