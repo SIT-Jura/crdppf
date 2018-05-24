@@ -1808,6 +1808,44 @@ LAYER
 END
 
 LAYER
+    NAME "cad_adresse_entree_batiment_od"
+    GROUP "plan_cadastral"
+    TYPE POINT
+    STATUS ON
+    METADATA
+        "ows_title" "Numero de batiment"
+        "wms_srs" "EPSG:${srid}"
+        "gml_types" "auto"
+        "gml_geometries" "geom"
+        "gml_geom_type" "point"
+    END
+    PROJECTION
+        "init=epsg:${srid}"
+    END
+    CONNECTIONTYPE POSTGIS
+    EXTENT ${extend_mapfile}
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    DATA "geom from crdppf.cad_adr_entree_batiment using unique objectid using srid=${srid}"
+    CLASSITEM 'dans_batiment'
+    LABELITEM 'numero_maison'
+    LABELMINSCALE 0
+    LABELMAXSCALE 3500
+    CLASS
+        EXPRESSION "OD"
+        LABEL
+            TYPE TRUETYPE
+            FONT cadastra_bold
+            SIZE 7
+            ANGLE [ori]
+            ANTIALIAS TRUE
+            COLOR 30 30 30
+            OUTLINECOLOR 255 255 255
+        END
+    END
+END
+
+LAYER
     NAME "cadastre_objets_divers_surface"
     GROUP "plan_cadastral"
     TYPE POLYGON
@@ -1972,15 +2010,12 @@ END
 LAYER
     NAME "cadastre_numero_batiment"
     GROUP "plan_cadastral"
-#    TYPE ANNOTATION
     TYPE POINT
     STATUS ON
     METADATA
         "ows_title" "Numero de batiment"
         "wms_srs" "epsg:${srid}"
-        #"gml_include_items" "all"
         "gml_types" "auto"
-        #"wfs_enable_request" "*"
         "gml_geometries" "geom"
         "gml_geom_type" "point"
     END
@@ -1993,24 +2028,23 @@ LAYER
     CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from cadastre.cad_couverture_du_sol_numero_batiment using unique objectid using srid=${srid}"
-    DATA "geom from crdppf.cad_couverture_du_sol_numero_batiment using unique objectid using srid=${srid}"
-    CLASSITEM 'numero'
-    LABELITEM 'numero'
+    DATA "geom from crdppf.cad_adr_entree_batiment using unique objectid using srid=${srid}"
+    CLASSITEM 'dans_batiment'
+    LABELITEM 'numero_maison'
     LABELMINSCALE 0
     LABELMAXSCALE 3500
     CLASS
+        EXPRESSION "CS"
         LABEL
             TYPE TRUETYPE
             FONT cadastra_bold
-            SIZE 6
-            ANGLE AUTO
+            SIZE 7
+            ANGLE [ori]
             ANTIALIAS TRUE
             COLOR 30 30 30
             OUTLINECOLOR 255 255 255
         END
     END
-    MINSCALEDENOM 50
-    MAXSCALEDENOM 3500
 END
 
 #########################################
