@@ -1726,6 +1726,46 @@ END
 #### Objets divers                   ####
 #########################################
 LAYER
+    NAME "cadastre_objets_divers_text"
+    GROUP "plan_cadastral"
+    TYPE POINT
+    STATUS ON
+    METADATA
+        "ows_title" "Numero de batiment"
+        "wms_srs" "EPSG:${srid}"
+        #"gml_include_items" "all"
+        "gml_types" "auto"
+        #"wfs_enable_request" "*"
+        "gml_geometries" "geom"
+        "gml_geom_type" "point"
+    END
+    PROJECTION
+        "init=epsg:${srid}"
+    END
+    CONNECTIONTYPE POSTGIS
+    EXTENT ${extend_mapfile}
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    DATA "geom from crdppf.cad_objets_divers_postext using unique objectid using srid=${srid}"
+    CLASSITEM 'numero_nom'
+    LABELITEM 'numero_nom'
+    LABELMINSCALE 0
+    LABELMAXSCALE 3500
+    CLASS
+        LABEL
+            TYPE TRUETYPE
+            FONT cadastra_bold
+            SIZE 6
+            ANGLE [ori]
+            ANTIALIAS TRUE
+            COLOR 30 30 30
+            OUTLINECOLOR 255 255 255
+        END
+    END
+    MINSCALEDENOM 50
+    MAXSCALEDENOM 3500
+END
+LAYER
     NAME "cadastre_objets_divers_lignes"
     GROUP "plan_cadastral"
     TYPE LINE
