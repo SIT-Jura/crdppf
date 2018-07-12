@@ -2345,25 +2345,25 @@ LAYER
         NAME "mat_antenne"
         EXPRESSION "mat_antenne"
         SYMBOL "OD_Mat_antenne"
-        SIZE 22
+        SIZE 36
     END
     CLASS
         NAME "monument"
         EXPRESSION "monument"
         SYMBOL "OD_Monument"
-        SIZE 22
+        SIZE 40
     END
     CLASS
         NAME "source"
         EXPRESSION "source"
         SYMBOL "OD_Source"
-        SIZE 24
+        SIZE 38
     END
     CLASS
         NAME "statue_crucifix"
         EXPRESSION "statue_crucifix"
         SYMBOL "OD_Statue_Crucifix"
-        SIZE 22
+        SIZE 40
     END
     MINSCALEDENOM 50
     MAXSCALEDENOM 2100

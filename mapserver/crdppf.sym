@@ -672,25 +672,25 @@ END
 SYMBOL
     NAME "OD_Mat_Antenne"
     TYPE PIXMAP
-    IMAGE "images/OD_Mat-Antenne.gif"
+    IMAGE "images/OD_Mat-Antenne.png"
 END
 
 SYMBOL
     NAME "OD_Monument"
     TYPE PIXMAP
-    IMAGE "images/OD_Monument.gif"
+    IMAGE "images/OD_Monument.png"
 END
 
 SYMBOL
     NAME "OD_Source"
     TYPE PIXMAP
-    IMAGE "images/OD_Source.gif"
+    IMAGE "images/OD_Source.png"
 END
 
 SYMBOL
     NAME "OD_Statue_crucifix"
     TYPE PIXMAP
-    IMAGE "images/OD_Statue-crucifix.gif"
+    IMAGE "images/OD_Statue-crucifix.png"
 END
 
 SYMBOL
