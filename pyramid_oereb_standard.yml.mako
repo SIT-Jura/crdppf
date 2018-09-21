@@ -179,7 +179,7 @@ pyramid_oereb:
   # bound to the source. The model must implement the same field names and information then the default model
   # does.
   real_estate:
-    view_service:
+    plan_for_land_register:
       # WMS URL to query the plan for land register
       reference_wms: https://geo.jura.ch/main/wsgi/mapserv_proxy?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&STYLES=default&SRS=EPSG:2056&BBOX=2475000,1065000,2850000,1300000&WIDTH=493&HEIGHT=280&FORMAT=image/png&LAYERS=plan_cadastral_crdppf
       #reference_wms: https://sitnssl.ne.ch/mapproxy95/service?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&STYLES=default&SRS=EPSG:2056&BBOX=2475000,1065000,2850000,1300000&WIDTH=493&HEIGHT=280&FORMAT=image/png&LAYERS=plan_cadastral_c2c
@@ -187,6 +187,18 @@ pyramid_oereb:
       #reference_wms: https://wms.geo.admin.ch/?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&STYLES=default&SRS=EPSG:2056&BBOX=2475000,1065000,2850000,1300000&WIDTH=493&HEIGHT=280&FORMAT=image/png&LAYERS=ch.swisstopo-vd.amtliche-vermessung
       # Legend is optional
       # legend_at_web:
+      layer_index: 0
+      layer_opacity: 1.0
+    plan_for_land_register_main_page:
+      # WMS URL to query the plan for land register
+      reference_wms: https://geo.jura.ch/main/wsgi/mapserv_proxy?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&STYLES=default&SRS=EPSG:2056&BBOX=2475000,1065000,2850000,1300000&WIDTH=493&HEIGHT=280&FORMAT=image/png&LAYERS=plan_cadastral_crdppf
+      #reference_wms: https://sitnssl.ne.ch/mapproxy95/service?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&STYLES=default&SRS=EPSG:2056&BBOX=2475000,1065000,2850000,1300000&WIDTH=493&HEIGHT=280&FORMAT=image/png&LAYERS=plan_cadastral_c2c
+      #reference_wms: https://sitnssl.ne.ch/dev_crdppf/ogcproxy?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&STYLES=default&SRS=EPSG:2056&BBOX=2475000,1065000,2850000,1300000&WIDTH=493&HEIGHT=280&TRANSPARENT=true&FORMAT=image/png&LAYERS=mo6_couverture_sol_nb,mo22_batiments,mo9_immeubles
+      #reference_wms: https://wms.geo.admin.ch/?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&STYLES=default&SRS=EPSG:2056&BBOX=2475000,1065000,2850000,1300000&WIDTH=493&HEIGHT=280&FORMAT=image/png&LAYERS=ch.swisstopo-vd.amtliche-vermessung
+      # Legend is optional
+      # legend_at_web:
+      layer_index: 0
+      layer_opacity: 1.0
     visualisation:
       method: pyramid_oereb.standard.hook_methods.produce_sld_content
       # Note: This parameters must fit to the attributes provided by the RealEstateRecord!!!!
@@ -302,7 +314,22 @@ pyramid_oereb:
         methods:
           date: pyramid_oereb.standard.hook_methods.get_surveying_data_update_date
           provider:  pyramid_oereb.standard.hook_methods.get_surveying_data_provider
-
+    # Certification and certification_at_web must be set with your own certification information.
+    certification:
+        de: Referenz zur kantonsspezifischen Gesetzesgrundlage bezüglich Beglaubigungen.
+        fr: Référence vers les dispositions légales cantonales concernant la certification
+        it: Certificazione secondo OCRDPP art. 14
+        rm: ...
+    certification_at_web:
+        de: https://geo.jura.ch/doc/Aide/CRDPPF_Extrait_certifie.pdf
+        fr: https://geo.jura.ch/doc/Aide/CRDPPF_Extrait_certifie.pdf
+        it: https://geo.jura.ch/doc/Aide/CRDPPF_Extrait_certifie.pdf
+        rm: https://geo.jura.ch/doc/Aide/CRDPPF_Extrait_certifie.pdf
+    general_information:
+        de: Der Inhalt des Katasters wird als bekannt vorausgesetzt. Der Kanton Jura ist für die Genauigkeit und Verlässlichkeit der gesetzgebenden Dokumenten in elektronischer Form nicht haftbar. Der Auszug hat rein informativen Charakter und begründet insbesondere keine Rechten und Pflichten. Rechtsverbindlich sind diejenigen Dokumente, welche rechtskräftig verabschiedet oder veröffentlicht worden sind. Mit der Beglaubigung des Auszuges wird die Übereinstimmung des Auszuges mit dem Kataster zum Zeitpunkt des Auszuges bestätigt.
+        fr: Le contenu du cadastre RDPPF est supposé connu. Le canton du Jura n'engage pas sa responsabilité sur l'exactitude ou la fiabilité des documents législatifs dans leur version électronique. L'extrait a un caractère informatif et ne crée aucun droit ou obligation. Les documents juridiquement contraignants sont ceux qui ont été légalement adoptés ou publiés. La certification d'un extrait confirme la concordance de cet extrait avec le cadastre RDPPF à la date d'établissement dudit extrait.
+        it: Il contenuto del Catasto RDPP si considera noto. Il Canton Jura non può essere ritenuto responsabile per la precisione e l'affidabilità dei documenti legislativi in formato elettronico. L'estratto ha carattere puramente informativo e non è in particolare costituti-vo di diritti e obblighi. Sono considerati giuridicamente vincolanti i documenti approvati o pubblicati passati in giudicato. Con l'autenticazione dell'estratto viene confermata la conformità dell'estratto rispetto al Catasto RDPP al momento della sua redazione.
+        rm: ...
 
   # All PLR's which are provided by this application. This is related to all application behaviour. Especially
   # the extract creation process which loops over this list.
@@ -332,6 +359,9 @@ pyramid_oereb:
       language: fr
       federal: false
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 1.0
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -366,6 +396,9 @@ pyramid_oereb:
       language: fr
       federal: true
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 0.75
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -400,6 +433,9 @@ pyramid_oereb:
       language: fr
       federal: true
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 0.75
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -434,6 +470,9 @@ pyramid_oereb:
       language: de
       federal: true
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 0.75
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -468,6 +507,9 @@ pyramid_oereb:
       language: de
       federal: true
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 0.75
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -502,6 +544,9 @@ pyramid_oereb:
       language: de
       federal: true
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 0.75
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -536,6 +581,9 @@ pyramid_oereb:
       language: de
       federal: true
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 0.75
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -570,6 +618,9 @@ pyramid_oereb:
       language: de
       federal: true
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 0.75
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -604,6 +655,9 @@ pyramid_oereb:
       language: de
       federal: false
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 0.75
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -638,6 +692,9 @@ pyramid_oereb:
       language: de
       federal: true
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 0.75
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -672,6 +729,9 @@ pyramid_oereb:
       language: de
       federal: true
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 0.75
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -706,6 +766,9 @@ pyramid_oereb:
       language: de
       federal: true
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 0.75
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -740,6 +803,9 @@ pyramid_oereb:
       language: fr
       federal: false
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 1.0
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -774,6 +840,9 @@ pyramid_oereb:
       language: de
       federal: false
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 1.0
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -808,6 +877,9 @@ pyramid_oereb:
       language: de
       federal: false
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 1.0
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -842,6 +914,9 @@ pyramid_oereb:
       language: fr
       federal: false
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 1.0
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:
@@ -876,6 +951,9 @@ pyramid_oereb:
       language: fr
       federal: false
       standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 0.75
       source:
         class: pyramid_oereb.standard.sources.plr.DatabaseSource
         params:

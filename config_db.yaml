@@ -25,6 +25,7 @@ db_config:
       schema: crdppf
       att_id: noobj
       att_id_property: id
+      att_egrid: no_egrid
       att_property_number: nummai
       att_property_type: typimm
       att_property_source: source
