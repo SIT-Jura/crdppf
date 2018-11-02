@@ -1496,7 +1496,8 @@ LAYER
 END
 
 LAYER
-    NAME "r131_zone_prot_eau"
+    NAME "r131_zone_prot_eau_en_preparation"
+    GROUP "r131_zone_prot_eau"
     STATUS ON
     METADATA
         "ows_title" "r131_zone_prot_eau"
@@ -1508,7 +1509,66 @@ LAYER
     EXTENT ${extend_mapfile}
     CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r131_zone_prot_eau using unique idobj using srid=${srid}"
+#    DATA "geom from crdppf.r131_zone_prot_eau using unique idobj using srid=${srid}"
+    DATA "geom from (select * from crdppf.r131_zone_prot_eau where statutjuridique = 'En préparation') as foo using unique idobj using srid=${srid}"
+    TYPE POLYGON
+    TEMPLATE "ttt"
+    OPACITY 60
+    CLASSITEM "teneur"
+    CLASS
+        NAME "Zones de captage S1, en préparation"
+        EXPRESSION "S1"
+        STYLE
+            COLOR 0 59 179
+        END
+        STYLE
+            OUTLINECOLOR 0 0 128
+            PATTERN 8 10 8 10 END
+            WIDTH 2
+        END
+    END
+    CLASS
+        NAME "Zones rapprochées S2, en préparation"
+        EXPRESSION "S2"
+        STYLE
+            COLOR 51 136 255
+        END
+        STYLE
+            OUTLINECOLOR 0 0 128
+            PATTERN 8 10 8 10 END
+            WIDTH 2
+        END
+    END
+    CLASS
+        NAME "Zones éloignées S3, en préparation"
+        EXPRESSION "S3"
+        STYLE
+            COLOR 179 210 255
+        END
+        STYLE
+            OUTLINECOLOR 0 0 128
+            PATTERN 8 10 8 10 END
+            WIDTH 2
+        END
+    END
+END
+
+LAYER
+    NAME "r131_zone_prot_eau_en_vigueur"
+    GROUP "r131_zone_prot_eau"
+    STATUS ON
+    METADATA
+        "ows_title" "r131_zone_prot_eau"
+        "wms_srs" "epsg:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
+    END
+    CONNECTIONTYPE POSTGIS
+    EXTENT ${extend_mapfile}
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+#    DATA "geom from crdppf.r131_zone_prot_eau using unique idobj using srid=${srid}"
+    DATA "geom from (select * from crdppf.r131_zone_prot_eau where statutjuridique = 'En vigueur') as foo using unique idobj using srid=${srid}"
     TYPE POLYGON
     TEMPLATE "ttt"
     OPACITY 60
