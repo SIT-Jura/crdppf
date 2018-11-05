@@ -1747,6 +1747,37 @@ LAYER
     TOLERANCEUNITS pixels
 END
 
+LAYER
+    NAME "r76_zones_reservees"
+    TYPE POLYGON
+    METADATA
+        "ows_title" "r76_zones_reservees"
+        "wms_srs" "epsg:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
+    END
+    CONNECTIONTYPE POSTGIS
+    EXTENT ${extend_mapfile}
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    DATA "geom from crdppf.r76_zones_reservees using unique idobj using srid=${srid}"
+    STATUS ON
+#    CLASSITEM "trie"
+    OPACITY 90
+    TEMPLATE "ttt"
+#    LABELITEM 'abreviation'
+#    LABELMINSCALEDENOM 100
+#    LABELMAXSCALEDENOM 7500
+    CLASS
+        NAME "Zones réservées"
+        STYLE
+            WIDTH 6
+            OUTLINECOLOR 255 0 0
+            PATTERN 15 8 2 8 2 8 END
+        END
+    END
+END
+
 #####################
 # RESTRICTIONS CRDPPF - fin
 #####################
