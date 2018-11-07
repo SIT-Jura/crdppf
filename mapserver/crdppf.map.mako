@@ -1600,7 +1600,8 @@ LAYER
 END
 
 LAYER
-    NAME "r132_perimetre_prot_eau"
+    NAME "r132_perimetre_prot_eau_en_preparation"
+    GROUP "r132_perimetre_prot_eau"
     STATUS ON
     METADATA
         "ows_title" "r132_perimetre_prot_eau"
@@ -1612,7 +1613,49 @@ LAYER
     EXTENT ${extend_mapfile}
     CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r132_perimetre_prot_eau using unique idobj using srid=${srid}"
+#    DATA "geom from crdppf.r132_perimetre_prot_eau using unique idobj using srid=${srid}"
+    DATA "geom from (select * from crdppf.r132_perimetre_prot_eau where statutjuridique = 'En préparation') as foo using unique idobj using srid=${srid}"
+    TYPE POLYGON
+    TEMPLATE "ttt"
+    OPACITY 60
+    CLASSITEM "teneur"
+    CLASS
+        NAME "Périmètres de protection des eaux souterraines, en préparation"
+        EXPRESSION "Périmètre"
+        STYLE
+            COLOR 157 228 242
+        END
+        STYLE
+            OUTLINECOLOR 0 74 89
+            PATTERN 8 10 8 10 END
+            WIDTH 2
+        END
+        STYLE
+            COLOR 0 74 89
+            SYMBOL "hatchsymbol"
+            SIZE 10
+            WIDTH 3
+            ANGLE 90
+        END
+    END
+END
+
+LAYER
+    NAME "r132_perimetre_prot_eau_en_vigueur"
+    GROUP "r132_perimetre_prot_eau"
+    STATUS ON
+    METADATA
+        "ows_title" "r132_perimetre_prot_eau"
+        "wms_srs" "epsg:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
+    END
+    CONNECTIONTYPE POSTGIS
+    EXTENT ${extend_mapfile}
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+#    DATA "geom from crdppf.r132_perimetre_prot_eau using unique idobj using srid=${srid}"
+    DATA "geom from (select * from crdppf.r132_perimetre_prot_eau where statutjuridique = 'En vigueur') as foo using unique idobj using srid=${srid}"
     TYPE POLYGON
     TEMPLATE "ttt"
     OPACITY 60
