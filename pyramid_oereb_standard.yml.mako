@@ -380,6 +380,35 @@ pyramid_oereb:
         in_force: inForce
         running_modifications: runningModifications
 
+    - name: plr76
+      code: ReservedAreas
+      geometry_type: POLYGON
+      thresholds:
+        length:
+          limit: 1.0
+        area:
+          limit: 1.0
+      text:
+        de: Planungszonen
+        fr: Zones réservées
+      language: fr
+      federal: false
+      standard: true
+      view_service:
+        layer_index: 1
+        layer_opacity: 0.75
+      source:
+        class: pyramid_oereb.standard.sources.plr.DatabaseSource
+        params:
+          db_connection: *main_db_connection
+          models: pyramid_oereb.standard.models.reserved_areas
+      hooks:
+        get_symbol: pyramid_oereb.standard.hook_methods.get_symbol
+        get_symbol_ref: pyramid_oereb.standard.hook_methods.get_symbol_ref
+      law_status:
+        in_force: inForce
+        running_modifications: runningModifications
+
     - name: plr87
       code: MotorwaysProjectPlaningZones
       geometry_type: MULTIPOLYGON

@@ -13,6 +13,11 @@ fi
 ##
 make -f $1.mk build
 
+
+echo ""
+echo "Création modele pyramid_oereb pour ReservedAreas"
+.build/venv/bin/create_standard_model -c ReservedAreas -g POLYGON -p .build/venv/lib/python2.7/site-packages/pyramid_oereb/standard/models -k TRUE
+
 echo ""
 echo "Suppressions des pdf sur instances rwunderlich et stage"
 rm -rf /var/sig/sitj/_crdppf_prov/*.pdf
