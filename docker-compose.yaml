@@ -1,0 +1,68 @@
+---
+
+# The project Docker compose file for development.
+
+version: '2'
+
+services:
+  config:
+    image: ${DOCKER_BASE}-config:${DOCKER_TAG}
+    user: www-data
+    environment:
+      - extend_mapfile
+      - instanceid
+      - host
+      - srid
+      - dbuser
+      - dbpassword
+      - dbhost
+      - db
+      - dbport
+
+  mapserver:
+    image: camptocamp/mapserver:7.2
+    user: www-data
+    restart: unless-stopped
+    entrypoint: []
+    environment:
+      - PGOPTIONS
+    volumes_from:
+      - config:rw
+
+  print:
+    image: camptocamp/mapfish_print:3.16
+    user: www-data
+    restart: unless-stopped
+    volumes_from:
+      - config:rw
+    environment:
+      - CATALINA_OPTS
+      - PGOPTIONS
+
+  geoportal:
+    image: ${DOCKER_BASE}-geoportal:${DOCKER_TAG}
+    user: www-data
+    restart: unless-stopped
+    environment:
+      - dbuser
+      - dbpassword
+      - dbhost
+      - dbport
+      - db_pyramid_oereb
+      - directory=/app
+      - default_language=fr
+      - instanceid
+      - host
+      - pdf_archive_path=/archive
+      - GUNICORN_PARAMS
+      - C2C_LOG_VIEW_ENABLED
+      - C2C_SQL_PROFILER_ENABLED
+      - C2C_DEBUG_VIEW_ENABLED
+      - C2C_REQUESTS_DEFAULT_TIMEOUT
+      - C2C_SECRET
+      - VISIBLE_ENTRY_POINT
+    volumes:
+      - ${DOCKER_PDF_ARCHIVE_PATH}:/archive:ro
+    ports:
+      - 9010:8080
+

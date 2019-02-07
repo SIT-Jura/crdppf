@@ -1,0 +1,21 @@
+FROM debian:stretch
+LABEL maintainer SITJ "sitj@ju.ch"
+
+RUN \
+  apt-get update && \
+  apt-get install --assume-yes --no-install-recommends gettext-base && \
+  apt-get clean && \
+  rm --recursive --force /var/lib/apt/lists/* && \
+  mkdir --parent /usr/local/tomcat/webapps/ROOT/ && \
+  adduser www-data root
+
+COPY crdppf_core/print/print-apps/ /usr/local/tomcat/webapps/ROOT/print-apps
+COPY bin/eval-templates-config /usr/bin/eval-templates
+COPY mapserver /etc/mapserver
+
+RUN chmod g+w -R /etc /usr/local/tomcat/webapps
+
+VOLUME /etc/mapserver \
+  /usr/local/tomcat/webapps/ROOT/print-apps
+
+ENTRYPOINT [ "/usr/bin/eval-templates" ]

@@ -1,0 +1,12 @@
+.git/
+crdppf_core/.git/
+crdppf_core/crdppf/static/lib/openlayers/.git
+crdppf_core/crdppf/static/lib/proj4js/proj4js/.git
+crdppf_core/crdppf/static/lib/geoext/.git
+crdppf_core/print/print-servlet.war
+crdppf_core/crdppf/static/lib/ext/docs/
+crdppf_core/crdppf/static/lib/ext/examples/
+crdppf_core/crdppf/static/lib/ext/pkgs/
+crdppf_core/crdppf/static/lib/geoext/tests
+crdppf_core/crdppf/static/lib/openlayers/examples
+crdppf_core/crdppf/static/lib/openlayers/tests

@@ -1,0 +1,9 @@
+#!/bin/bash -e
+
+find /etc/mapserver/ /usr/local/tomcat/webapps/ -name '*.tmpl' -print | while read file
+do
+    echo "Evaluate: ${file}"
+    envsubst < ${file} > ${file%.tmpl}
+done
+
+exec "$@"

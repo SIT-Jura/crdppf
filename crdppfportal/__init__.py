@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 from pyramid.config import Configurator
+import logging
+
+LOG = logging.getLogger(__name__)
 
 
 def main(global_config, **settings):
-    """ This function returns a Pyramid WSGI application.
+    """
+    This function returns a Pyramid WSGI application.
     """
 
     config = Configurator(settings=settings)

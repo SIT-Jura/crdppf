@@ -12,21 +12,35 @@ Répertoire instance principale
 Téléchargé le projet  GitHub
 
     git clone git@github.com:SIT-Jura/crdppf.git
+    cd crdppf
 
 Télécharger crdppf_core
 
-    cd crdppf
     git clone git@github.com:sitn/crdppf_core.git
+    cd crdppf_core
+    git checkout py3
+    git submodules update --init
+    cd ..
 
 After the installation put the directoriy crdpp in W
 
-    cd ..
-    chmod -R o+w crdppf
+    chmod -R o+w .
 
 Build
 
-    cd crdppf
     make -f <user>.mk build
+
+Run
+
+    docker-compose up -d
+
+Logs
+
+    docker-compose logs -f --tail=0 geoportal
+
+Stop
+
+    docker-compose down
 
 # Upgrade and update crdppf_core
 

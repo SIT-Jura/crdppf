@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-try:    
+try:
     from setuptools import setup, find_packages
 except ImportError:
     from ez_setup import use_setuptools
@@ -8,7 +8,6 @@ except ImportError:
     from setuptools import setup, find_packages
 
 requires = [
-    'pyramid_oereb[recommend]==1.2.3'
 ]
 
 setup(

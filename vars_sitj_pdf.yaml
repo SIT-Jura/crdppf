@@ -1,6 +1,9 @@
 extends: crdppf_core/CONST_vars.yaml
 vars:
-   
+    docker_base: '{DOCKER_BASE}'
+    docker_tag: '{DOCKER_TAG}'
+    visible_entry_point: '{VISIBLE_ENTRY_POINT}'
+
     # Host of the application
     host: localhost
 
@@ -10,7 +13,7 @@ vars:
     # database password
     dbpassword: www-data
     # database host
-    dbhost: localhost
+    dbhost: 172.17.0.1
     # database port
     dbport: 5432
     # database name
@@ -39,7 +42,7 @@ vars:
         Require all denied
 
     # CRDPPF webapp definitions
-    crdppf_wms: http://localhost/{instanceid}/wmscrdppf
+    crdppf_wms: http://mapserver:8080/
 
     # FEDERAL WEBSERVICES
     ch_wms: https://wms.geo.admin.ch/
@@ -73,6 +76,10 @@ vars:
     #mapExtentMaxY: 1264800
     extend_mapfile: 2544000 1217400 2615400 1264800
 
+    #Variables tomcat
+    TOMCAT_START_COMMAND: sudo /etc/init.d/tomcat-tomcat1 start 
+    TOMCAT_STOP_COMMAND: sudo /etc/init.d/tomcat-tomcat1 stop 
+
     # Logon -> Should the system write to the log (pserve console or Apache error.log file)
     logon: False
 
@@ -85,4 +92,16 @@ vars:
     tomcat_webapp_folder: /srv/tomcat/tomcat1/webapps/
 
     # Path to PDF extract archive folder
-    pdf_archive_path: /var/sig/sitj/_crdppf_prov
+    pdf_archive_path: /archive
+
+    docker_pdf_archive_path: '{DOCKER_PDF_ARCHIVE_PATH}'
+
+environment:
+    - name: DOCKER_BASE
+      default: should-not-be-used
+    - name: DOCKER_TAG
+      default: should-not-be-used
+    - name: DOCKER_PDF_ARCHIVE_PATH
+      default: should-not-be-used
+    - name: VISIBLE_ENTRY_POINT
+      default: should-not-be-used

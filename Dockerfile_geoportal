@@ -1,0 +1,69 @@
+FROM camptocamp/c2cwsgiutils:2
+LABEL maintainer SITJ "sitj@ju.ch"
+
+RUN \
+  . /etc/os-release && \
+  apt-get update && \
+  apt-get install --assume-yes --no-install-recommends gettext-base && \
+  apt-get clean && \
+  rm --recursive --force /var/lib/apt/lists/*
+
+COPY requirements.txt crdppf_core/CONST_versions.txt /tmp/
+
+RUN \
+  cd /tmp && \
+  pip install --disable-pip-version-check --no-cache-dir --requirement=/tmp/requirements.txt && \
+  rm --recursive --force /tmp/* /var/tmp/* /root/.cache/*
+
+ARG GIT_HASH
+WORKDIR /app
+
+COPY crdppf_core /app/crdppf_core
+
+RUN mkdir -p crdppf_core/crdppf/static/build && \
+  jsbuild crdppf_core/jsbuild/app.cfg -o crdppf_core/crdppf/static/build && \
+  c2cwsgiutils_genversion.py $GIT_HASH && \
+  create_standard_model -c ReservedAreas -g POLYGON -p /usr/local/lib/python3.6/dist-packages/pyramid_oereb/standard/models -k TRUE
+
+COPY bin/eval-templates-geoportal /usr/bin/eval-templates
+COPY crdppfportal /app/crdppfportal
+COPY vars_sitj_pdf.yaml setup.cfg setup.py /app/
+
+RUN INSTANCE_ID=shouldnt-be-used c2c-template --vars vars_sitj_pdf.yaml --get-config config.yaml \
+	sqlalchemy.url \
+	instanceid \
+	development \
+	specific_root_dir \
+	database.cfg \
+	tile_date_file \
+	ch_wms \
+	default_language \
+	fulltextsearch_url \
+	defaultTiles \
+	mapproxyurl \
+	mapMatrixSet \
+	mapExtent \
+	mapMaxExtent \
+	mapCenter \
+	mapSRS \
+	mapResolutions \
+	mapMatrixSet \
+	mapOverviewExtent \
+	mapOverviewSizeW \
+	mapOverviewSizeH \
+	keymap \
+	crdppf_wms \
+	authtkt_cookie_name \
+	authtkt_secret \
+	disclaimer \
+	pdf.cfg \
+	logon && \
+  python -m compileall -q -l crdppfportal crdppf_core/crdppf crdppf_core/crdppf/views \
+    crdppf_core/crdppf/utilities crdppf_core/crdppf/lib crdppf_core/crdppf/util && \
+  pip install --editable crdppf_core --editable . && \
+  chmod go+w -R /app
+
+COPY development.ini production.ini logo_*.png pyramid_oereb_standard.yml.tmpl config_db.yaml config_pdf.yaml.tmpl /app/
+
+ENTRYPOINT [ "/usr/bin/eval-templates" ]
+CMD ["c2cwsgiutils_run"]
