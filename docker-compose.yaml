@@ -30,8 +30,9 @@ services:
       - config:rw
 
   print:
-    image: camptocamp/mapfish_print:3.16
-    user: www-data
+    image: ${DOCKER_BASE}-print:${DOCKER_TAG}
+# Should be uncommented when using more resent version of Mapfish print
+#    user: www-data
     restart: unless-stopped
     volumes_from:
       - config:rw
@@ -62,7 +63,7 @@ services:
       - C2C_SECRET
       - VISIBLE_ENTRY_POINT
     volumes:
-      - ${DOCKER_PDF_ARCHIVE_PATH}:/archive:ro
+      - ${DOCKER_PDF_ARCHIVE_PATH}:/archive:rw
     ports:
       - 9010:8080
 
