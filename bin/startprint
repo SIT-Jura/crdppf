@@ -1,0 +1,5 @@
+#!env bash -e
+
+cp webapps/ROOT/print-apps/Cadastra.jar webapps/ROOT/WEB-INF/lib/
+
+exec "$@"
