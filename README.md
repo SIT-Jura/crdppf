@@ -19,7 +19,7 @@ Télécharger crdppf_core
     git clone git@github.com:sitn/crdppf_core.git
     cd crdppf_core
     git checkout py3
-    git submodules update --init
+    git submodule update --init
     cd ..
 
 After the installation put the directoriy crdpp in W
