@@ -67,4 +67,15 @@ Update and upgrade:
     git submodule update --init
 
 <tag> is the version of crdppf_core (ex: 1.0.7) 
-     
+
+# Pyramid oereb
+
+Ajout d'une nouvelle restriction, ouvrir le fichier
+
+    Dockerfile_geoportal
+
+Prendre exemple sur la ligne 26
+
+    create_standard_model -c ReservedAreas -g POLYGON -p /usr/local/lib/python3.6/dist-packages/pyramid_oereb/standard/models -k TRUE
+
+Sans oublier de mettre un \ si nécessaire à la fin des lignes (sauf pour la dernière)

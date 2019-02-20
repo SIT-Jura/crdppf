@@ -1,4 +1,6 @@
 #!/bin/bash
+date
+echo "--------------------------------------------------------------------"
 if [ $# -ne 1 ] 
 then
     echo "Error: missing argument."
@@ -6,32 +8,27 @@ then
     exit 1
 fi
 
-##echo ""
-##echo "Arrêt tomcat"
-##sudo /etc/init.d/tomcat-tomcat1 stop
-##
-##
+#build
+echo $commande "make -f $1.mk build"
 make -f $1.mk build
-
-
 echo ""
-echo "Création modele pyramid_oereb pour ReservedAreas"
-.build/venv/bin/create_standard_model -c ReservedAreas -g POLYGON -p .build/venv/lib/python2.7/site-packages/pyramid_oereb/standard/models -k TRUE
 
 echo ""
 echo "Suppressions des pdf sur instances rwunderlich et stage"
 rm -rf /var/sig/sitj/_crdppf_prov/*.pdf
 
-#echo ""
-#echo "Redemarrage postgresql"
-#sudo /etc/init.d/postgresql restart
-
+#stop and down docket instance
+echo "docker-compose down"
+docker-compose down
 echo ""
-echo "Redemarrage tomcat"
-sudo /etc/init.d/tomcat-tomcat1 restart
 
+#start docker
+echo "docker-compose up -d"
+docker-compose up -d
 echo ""
+
 echo "Redemarrage apache"
 sudo apache2ctl graceful
+
 
 date
