@@ -1,3 +1,4 @@
+COMPOSE_PROJECT_NAME=crdppf_${instanceid}
 DOCKER_BASE=${docker_base}
 DOCKER_TAG=${docker_tag}
 PORT=${docker_port}

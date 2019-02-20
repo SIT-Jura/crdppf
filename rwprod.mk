@@ -1,6 +1,7 @@
 
 INSTANCE_ID = crdppf_rw
 DOCKER_PORT=9020
+DOCKER_TAG = ${INSTANCE_ID}
 
 # Host of the application
 host = geo.jura.ch
