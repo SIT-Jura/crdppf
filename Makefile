@@ -47,6 +47,9 @@ DOCKER_BASE ?= sitj/crdppf
 export DOCKER_BASE
 DOCKER_TAG ?= latest
 export DOCKER_TAG
+DOCKER_PORT ?= 9010
+export DOCKER_PORT
+export VISIBLE_ENTRY_POINT = /$(INSTANCE_ID)/
 
 GIT_HASH ?= $(shell git rev-parse HEAD)
 

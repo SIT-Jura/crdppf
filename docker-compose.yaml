@@ -65,5 +65,5 @@ services:
     volumes:
       - ${DOCKER_PDF_ARCHIVE_PATH}:/archive:rw
     ports:
-      - 9010:8080
+      - ${PORT}:8080
 

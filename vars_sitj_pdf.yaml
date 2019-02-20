@@ -2,6 +2,7 @@ extends: crdppf_core/CONST_vars.yaml
 vars:
     docker_base: '{DOCKER_BASE}'
     docker_tag: '{DOCKER_TAG}'
+    docker_port: '{DOCKER_PORT}'
     visible_entry_point: '{VISIBLE_ENTRY_POINT}'
 
     # Host of the application
@@ -101,6 +102,8 @@ environment:
       default: should-not-be-used
     - name: DOCKER_TAG
       default: should-not-be-used
+    - name: DOCKER_PORT
+      default: 9010
     - name: DOCKER_PDF_ARCHIVE_PATH
       default: should-not-be-used
     - name: VISIBLE_ENTRY_POINT

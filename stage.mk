@@ -1,6 +1,5 @@
 
 INSTANCE_ID = crdppf
-export VISIBLE_ENTRY_POINT = /$(INSTANCE_ID)/
 
 export DOCKER_PDF_ARCHIVE_PATH = /var/sig/sitj/_crdppf_prov
 

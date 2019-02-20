@@ -1,5 +1,6 @@
 DOCKER_BASE=${docker_base}
 DOCKER_TAG=${docker_tag}
+PORT=${docker_port}
 extend_mapfile=${extend_mapfile}
 instanceid=${instanceid}
 VISIBLE_ENTRY_POINT=${visible_entry_point}
