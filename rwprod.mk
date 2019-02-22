@@ -1,21 +1,16 @@
-
 INSTANCE_ID = crdppf_rw
 DOCKER_PORT=9020
 DOCKER_TAG = ${INSTANCE_ID}
+
+export DOCKER_PDF_ARCHIVE_PATH = /var/sig/sitj/_crdppf_prov
 
 # Host of the application
 host = geo.jura.ch
 
 VENV_BIN ?= .build/venv/bin
-CONST_REQUIREMENT_FILE ?= CONST_requirements.txt
 
 DEVELOPMENT = TRUE
 
-VARS_FILE = vars_sitj_pdf_test.yaml
-PRINT_OUTPUT ?= /srv/tomcat/tomcat1/webapps
+VARS_FILE = vars_sitj_pdf.yaml
 
-#Variables tomcat
-TOMCAT_START_COMMAND = sudo /etc/init.d/tomcat-tomcat1 start 
-TOMCAT_STOP_COMMAND = sudo /etc/init.d/tomcat-tomcat1 stop 
-
-include crdppf_core/CONST_Makefile
+include Makefile

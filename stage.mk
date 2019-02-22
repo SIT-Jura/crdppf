@@ -1,4 +1,3 @@
-
 INSTANCE_ID = crdppf
 
 export DOCKER_PDF_ARCHIVE_PATH = /var/sig/sitj/_crdppf_prov
