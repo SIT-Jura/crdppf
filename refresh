@@ -8,6 +8,11 @@ then
     exit 1
 fi
 
+#stop and down docket instance
+echo "docker-compose down"
+docker-compose down
+echo ""
+
 #build
 echo $commande "make -f $1.mk build"
 make -f $1.mk build
@@ -16,11 +21,6 @@ echo ""
 echo ""
 echo "Suppressions des pdf sur instances rwunderlich et stage"
 rm -rf /var/sig/sitj/_crdppf_prov/*.pdf
-
-#stop and down docket instance
-echo "docker-compose down"
-docker-compose down
-echo ""
 
 #start docker
 echo "docker-compose up -d"
