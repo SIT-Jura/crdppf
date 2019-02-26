@@ -51,10 +51,10 @@ vars:
     chfs_baseurl: https://api3.geo.admin.ch/rest/services/api/MapServer/identify
 
     # FULLTEXTSEARCH - Define a fulltextsearchURL
-    fulltextsearch_url: https://geo.jura.ch/main/wsgi/fulltextsearch
+    fulltextsearch_url: https://geo.jura.ch/fulltextsearch
 
     # BACKGROUND LAYERS - Define a mapproxyurl and other OpenLayers parameters for map.js and layertree.js
-    mapproxyurl: ["'https://geotile0.jura.ch/main/tiles'","'https://geotile1.jura.ch/main/tiles'","'https://geotile2.jura.ch/main/tiles'","'https://geotile3.jura.ch/main/tiles'","'https://geotile4.jura.ch/main/tiles'","'https://geotile5.jura.ch/main/tiles'"]
+    mapproxyurl: ["'https://geotile0.jura.ch/tiles'","'https://geotile1.jura.ch/tiles'","'https://geotile2.jura.ch/tiles'","'https://geotile3.jura.ch/tiles'","'https://geotile4.jura.ch/tiles'","'https://geotile5.jura.ch/tiles'"]
     defaultTiles: 
         wmtsname: plan_cadastral_crdppf
         tile_format: image/png
@@ -64,7 +64,7 @@ vars:
     mapSRS: "EPSG:2056"
     srid: "2056"
     mapResolutions: 350,140,70,26.5,14,7,3.5,2.65,1.75,1.3,0.7,0.35,0.2,0.1,0.05
-    mapMatrixSet: 2015/swissgrid
+    mapMatrixSet: 2019/swissgrid
     mapOverviewExtent: 2554000, 1220000, 2610000, 1262000
     mapOverviewSizeW: 147
     mapOverviewSizeH: 110
