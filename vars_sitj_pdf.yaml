@@ -51,7 +51,7 @@ vars:
     chfs_baseurl: https://api3.geo.admin.ch/rest/services/api/MapServer/identify
 
     # FULLTEXTSEARCH - Define a fulltextsearchURL
-    fulltextsearch_url: https://geo.jura.ch/fulltextsearch
+    fulltextsearch_url: https://geo.jura.ch/search
 
     # BACKGROUND LAYERS - Define a mapproxyurl and other OpenLayers parameters for map.js and layertree.js
     mapproxyurl: ["'https://geotile0.jura.ch/tiles'","'https://geotile1.jura.ch/tiles'","'https://geotile2.jura.ch/tiles'","'https://geotile3.jura.ch/tiles'","'https://geotile4.jura.ch/tiles'","'https://geotile5.jura.ch/tiles'"]
