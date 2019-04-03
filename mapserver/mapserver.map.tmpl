@@ -1510,14 +1510,14 @@ LAYER
     CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from crdppf.r131_zone_prot_eau using unique idobj using srid=${srid}"
-    DATA "geom from (select * from crdppf.r131_zone_prot_eau where statutjuridique = 'En préparation') as foo using unique idobj using srid=${srid}"
+    DATA "geom from (select * from crdppf.r131_zone_prot_eau where statutjuridique = 'Pas encore en vigueur') as foo using unique idobj using srid=${srid}"
     TYPE POLYGON
     TEMPLATE "ttt"
     OPACITY 60
     CLASSITEM "teneur"
     CLASS
-        NAME "Zones de captage S1, en préparation"
-        EXPRESSION "S1"
+        NAME "Zones de captage S1, pas encore en vigueur"
+        EXPRESSION "Zones de captage S1, pas encore en vigueur"
         STYLE
             COLOR 0 59 179
         END
@@ -1528,8 +1528,8 @@ LAYER
         END
     END
     CLASS
-        NAME "Zones rapprochées S2, en préparation"
-        EXPRESSION "S2"
+        NAME "Zones rapprochées S2, pas encore en vigueur"
+        EXPRESSION "Zones rapprochées S2, pas encore en vigueur"
         STYLE
             COLOR 51 136 255
         END
@@ -1540,8 +1540,8 @@ LAYER
         END
     END
     CLASS
-        NAME "Zones éloignées S3, en préparation"
-        EXPRESSION "S3"
+        NAME "Zones éloignées S3, pas encore en vigueur"
+        EXPRESSION "Zones éloignées S3, pas encore en vigueur"
         STYLE
             COLOR 179 210 255
         END
@@ -1575,7 +1575,7 @@ LAYER
     CLASSITEM "teneur"
     CLASS
         NAME "Zones de captage S1"
-        EXPRESSION "S1"
+        EXPRESSION "Zones de captage S1"
         STYLE
             COLOR 0 59 179
             OUTLINECOLOR 0 0 128
@@ -1583,7 +1583,7 @@ LAYER
     END
     CLASS
         NAME "Zones rapprochées S2"
-        EXPRESSION "S2"
+        EXPRESSION "Zones rapprochées S2"
         STYLE
             COLOR 51 136 255
             OUTLINECOLOR 0 0 128
@@ -1591,7 +1591,7 @@ LAYER
     END
     CLASS
         NAME "Zones éloignées S3"
-        EXPRESSION "S3"
+        EXPRESSION "Zones éloignées S3"
         STYLE
             COLOR 179 210 255
             OUTLINECOLOR 0 0 128
@@ -1614,13 +1614,13 @@ LAYER
     CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
     PROCESSING "CLOSE_CONNECTION=DEFER"
 #    DATA "geom from crdppf.r132_perimetre_prot_eau using unique idobj using srid=${srid}"
-    DATA "geom from (select * from crdppf.r132_perimetre_prot_eau where statutjuridique = 'En préparation') as foo using unique idobj using srid=${srid}"
+    DATA "geom from (select * from crdppf.r132_perimetre_prot_eau where statutjuridique = 'Pas encore en vigueur') as foo using unique idobj using srid=${srid}"
     TYPE POLYGON
     TEMPLATE "ttt"
     OPACITY 60
     CLASSITEM "teneur"
     CLASS
-        NAME "Périmètres de protection des eaux souterraines, en préparation"
+        NAME "Périmètres de protection des eaux souterraines, pas encore en vigueur"
         EXPRESSION "Périmètre"
         STYLE
             COLOR 157 228 242
