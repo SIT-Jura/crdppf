@@ -12,7 +12,7 @@ requires = [
 
 setup(
     name='crdppfportal',
-    version='2.6',
+    version='2.8',
     description='sitn, a crdppf project',
     author='sitn',
     author_email='sitn@ne.ch',
