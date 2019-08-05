@@ -29,18 +29,10 @@ services:
     volumes_from:
       - config:rw
 
-  print:
-    image: ${DOCKER_BASE}-print:${DOCKER_TAG}
-# Should be uncommented when using more resent version of Mapfish print
-#    user: www-data
-    restart: unless-stopped
-    volumes_from:
-      - config:rw
-    environment:
-      - CATALINA_OPTS
-      - PGOPTIONS
-
-  geoportal:
+  oereb-server:
+    networks:
+    - default
+    - print-network
     image: ${DOCKER_BASE}-geoportal:${DOCKER_TAG}
     user: www-data
     restart: unless-stopped
@@ -67,3 +59,6 @@ services:
     ports:
       - ${PORT}:8080
 
+networks:
+  print-network:
+    external: true
