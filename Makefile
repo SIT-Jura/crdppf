@@ -39,7 +39,7 @@ endif
 	@echo
 
 .PHONY: build
-build: template-generate docker-build-config docker-build-geoportal docker-build-print
+build: template-generate docker-build-config docker-build-geoportal
 
 # Docker
 
@@ -60,10 +60,6 @@ docker-build-config:
 .PHONY: docker-build-geoportal
 docker-build-geoportal:
 	docker build --file=Dockerfile_geoportal --tag=$(DOCKER_BASE)-geoportal:$(DOCKER_TAG) --build-arg=GIT_HASH=$(GIT_HASH) .
-
-.PHONY: docker-build-print
-docker-build-print:
-	docker build --file=Dockerfile_print --tag=$(DOCKER_BASE)-print:$(DOCKER_TAG) .
 
 .PHONY: clean
 clean: template-clean
