@@ -87,6 +87,10 @@ pyramid_oereb:
     # Whether to display the RealEstate_SubunitOfLandRegister (Grundbuchkreis) in the pdf extract or not.
     # Default to true.
     display_real_estate_subunit_of_land_register: true
+    # Specify any additional URL parameters that the print shall use for WMS calls
+    wms_url_params:
+      TRANSPARENT: 'true'
+      ogcserver: 'Main PNG'
 
   # The "app_schema" property contains only one sub property "name". This is directly related to the database
   # creation process, because this name is used as schema name in the target database. The app_schema holds
