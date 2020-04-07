@@ -1,3 +1,3 @@
-FROM camptocamp/mapfish_print:3.10.7
-LABEL maintainer SITJ "sitj@ju.ch"
+FROM camptocamp/mapfish_print:3.20.1
+LABEL maintainer SITJ "sit@jura.ch"
 COPY crdppf_core/print/WEB-INF/lib/Cadastra.jar /usr/local/tomcat/webapps/ROOT/WEB-INF/lib/Cadastra.jar
