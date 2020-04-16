@@ -96,7 +96,7 @@ pdf_config:
   # Default base name for the PDF extract
   pdfbasename: _ExtraitCRDPPF
 
-  # Default prefix/suffix for all the basemap files to ditinguish them from topic files
+  # Default prefix/suffix for all the basemap files to distinguish them from topic files
   siteplanbasename: _siteplan
 
   # Activates (true) or not cantonal and other optional topics (to be specified in crdppfportal/models.py)
@@ -126,3 +126,6 @@ wmts_getcapabilities_url: https://geo.jura.ch/tiles/1.0.0/WMTSCapabilities.xml
 
 # Path to PDF extract archive folder
 pdf_archive_path: ${pdf_archive_path}
+
+# Switch for the PDF render engine pyramid_oereb_mfp or crdppf_mfp
+pdf_render_engine: ${pdf_renderer}

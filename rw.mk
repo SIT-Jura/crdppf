@@ -14,3 +14,7 @@ DEVELOPMENT = TRUE
 VARS_FILE = vars_sitj_pdf.yaml
 
 include Makefile
+
+# Render engine to use for the pdf extract: crdppf_mfp or pyramid_oereb_mfp
+#pdf_renderer = crdppf_mfp
+#Adapter le fichier config_pdf.yaml.tmpl directement
