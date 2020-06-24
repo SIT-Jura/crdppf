@@ -1099,6 +1099,37 @@ LAYER
 END
 
 LAYER
+    NAME "r88_astra_baulinien_nationalstrassen"
+    STATUS ON
+    METADATA
+        "ows_title" "r88_astra_baulinien_nationalstrassen"
+        "wms_srs" "epsg:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
+    END
+    CONNECTIONTYPE POSTGIS
+    EXTENT ${extend_mapfile}
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    DATA "geom from crdppf.r88_astra_baulinien_nationalstrassen using unique idobj using srid=${srid}"
+    #DATA "geom from crdppf.r159_dist_foret using unique idobj using srid=${srid}"
+    TYPE LINE
+    TEMPLATE "ttt"
+    CLASSITEM "teneur"
+    OPACITY 60
+    CLASS
+        NAME "Alignements des routes nationales"
+        STYLE
+            WIDTH 2
+            OUTLINECOLOR 0 230 0
+            PATTERN 10 2 1 2 END
+        END
+    END
+    TOLERANCE 5
+    TOLERANCEUNITS pixels
+END
+
+LAYER
     NAME "r96_bav_projektierungszonen_eisenbahnanlagen"
     STATUS ON
     METADATA
