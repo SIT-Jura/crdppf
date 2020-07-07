@@ -7,18 +7,16 @@ from sqlalchemy import(
     Text,
     String,
     Float)
+
+from sqlalchemy.orm import relationship, backref,deferred
     
 from papyrus.geo_interface import GeoInterface
 from geoalchemy2 import Geometry
 
-from sqlalchemy.orm import relationship, backref, deferred
-from zope.sqlalchemy import ZopeTransactionExtension
-import sqlahelper
-
 from crdppf import db_config
 srid_ = db_config['srid']
 
-Base = sqlahelper.get_base()
+from crdppf.models import Base
 
 # Specific model definition here
 class ZonesReservees(GeoInterface, Base):
