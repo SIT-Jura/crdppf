@@ -9,7 +9,7 @@ from crdppf.models.models import CHAirportProjectZones, CHAirportProjectZonesPDF
 from crdppf.models.models import CHAirportConstructionLimits, CHAirportConstructionLimitsPDF
 from crdppf.models.models import CHPollutedSitesCivilAirports, CHPollutedSitesCivilAirportsPDF
 from crdppf.models.models import CHPollutedSitesPublicTransports, CHPollutedSitesPublicTransportsPDF
-from crdppf.models.models import CHContaminatedMilitarySites, CHContaminatedMilitarySitesPDF
+from crdppf.models.models import ContaminatedMilitarySites
 from crdppf.models.models import WaterProtectionZones, WaterProtectionPerimeters
 from crdppf.models.models import RoadNoise, ForestLimits, ForestDistances
 from crdppfportal.models import ZonesReservees
@@ -34,8 +34,7 @@ table2model_match = {
     'r108_bazl_sicherheitszonenplan': CHAirportSecurityZones,
     'r108_bazl_sicherheitszonenplan_pdf': CHAirportSecurityZonesPDF,
     'r116_sites_pollues': PollutedSites,
-    'r117_vbs_belastete_standorte_militaer': CHContaminatedMilitarySites,
-    'r117_vbs_belastete_standorte_militaer_pdf': CHContaminatedMilitarySitesPDF,
+    'r117_vbs_belastete_standorte_militaer': ContaminatedMilitarySites,
     'r118_bazl_belastete_standorte_zivilflugplaetze': CHPollutedSitesCivilAirports,
     'r118_bazl_belastete_standorte_zivilflugplaetze_pdf': CHPollutedSitesCivilAirportsPDF,
     'r119_bav_belastete_standorte_oev': CHPollutedSitesPublicTransports,
