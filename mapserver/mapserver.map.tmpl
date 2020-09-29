@@ -1320,87 +1320,6 @@ LAYER
 END
 
 LAYER
-    NAME "r117_vbs_belastete_standorte_militaer_pts"
-    GROUP "r117_vbs_belastete_standorte_militaer"
-    TYPE POINT
-    METADATA
-        "ows_title" "r117_vbs_belastete_standorte_militaer_pts"
-        "wms_srs" "epsg:${srid}"
-        "wms_title" "${instanceid} WMS Server"
-        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
-    END
-    CONNECTIONTYPE POSTGIS
-    EXTENT ${extend_mapfile}
-    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
-    PROCESSING "CLOSE_CONNECTION=DEFER"
-    DATA "geom from crdppf.r117_vbs_belastete_standorte_militaer using unique idobj using srid=${srid}"
-    STATUS ON
-    CLASSITEM "codegenre"
-    OPACITY 60
-    TEMPLATE "ttt"
-    CLASS
-        NAME "Pollué, nécessitée d'une investigation non encore évaluée"
-        EXPRESSION "r117_Pollue_pas_atteinte_a_attendre_pt"
-        STYLE
-            SYMBOL "circle"
-             COLOR 95 95 95
-            OUTLINECOLOR 0 0 0
-            SIZE 7
-        END
-    END
-    CLASS
-        NAME "Pollué, investigation nécessaire"
-        EXPRESSION "r117_Pollue_investigation_necessaire_pt"
-        STYLE
-            SYMBOL "circle"
-            COLOR 0 0 255
-            OUTLINECOLOR 0 0 0
-            SIZE 7
-        END
-    END
-    CLASS
-        NAME "Pollué, ne nécessite ni surveillance ni assainissement"
-        EXPRESSION "r117_Pollue_ni_surveillance_ni_assainissement_pt"
-        STYLE
-            SYMBOL "circle"
-            COLOR 255 204 0
-            OUTLINECOLOR 0 0 0
-            SIZE 7
-        END
-    END
-    CLASS
-        NAME "Pollué, nécessite une surveillance"
-        EXPRESSION "r117_Pollue_necessite_surveillance_pt"
-        STYLE
-            SYMBOL "circle"
-            COLOR 255 102 5
-            OUTLINECOLOR 0 0 0
-            SIZE 7
-        END
-    END
-    CLASS
-        NAME "Pollué, nécessite un assainissement"
-        EXPRESSION "r117_Pollue_necessite_assainissement_pt"
-        STYLE
-            SYMBOL "circle"
-            COLOR 255 0 0
-            OUTLINECOLOR 0 0 0
-            SIZE 7
-        END
-    END
-    CLASS
-        NAME "Pollué, pas d'atteinte nuisible ou incommodante à attendre"
-        EXPRESSION "r117_Pollue_investigation_non_evaluee_pt"
-        STYLE
-            SYMBOL "circle"
-            COLOR 255 255 0
-            OUTLINECOLOR 0 0 0
-            SIZE 7
-        END
-    END
-END
-
-LAYER
     STATUS ON
     NAME "r117_vbs_belastete_standorte_militaer_poly"
     GROUP "r117_vbs_belastete_standorte_militaer"
@@ -1455,6 +1374,87 @@ LAYER
         EXPRESSION "r117_Pollue_investigation_non_evaluee"
         COLOR 95 95 95
         OUTLINECOLOR 0 0 0
+    END
+END
+
+LAYER
+    NAME "r117_vbs_belastete_standorte_militaer_pts"
+    GROUP "r117_vbs_belastete_standorte_militaer"
+    TYPE POINT
+    METADATA
+        "ows_title" "r117_vbs_belastete_standorte_militaer_pts"
+        "wms_srs" "epsg:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
+    END
+    CONNECTIONTYPE POSTGIS
+    EXTENT ${extend_mapfile}
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    DATA "geom from crdppf.r117_vbs_belastete_standorte_militaer using unique idobj using srid=${srid}"
+    STATUS ON
+    CLASSITEM "codegenre"
+    OPACITY 60
+    TEMPLATE "ttt"
+    CLASS
+        NAME "Pollué, pas d'atteinte nuisible ou incommodante à attendre"
+        EXPRESSION "r117_Pollue_investigation_non_evaluee_pt"
+        STYLE
+            SYMBOL "circle"
+            COLOR 255 255 0
+            OUTLINECOLOR 0 0 0
+            SIZE 7
+        END
+    END
+	CLASS
+        NAME "Pollué, investigation nécessaire"
+        EXPRESSION "r117_Pollue_investigation_necessaire_pt"
+        STYLE
+            SYMBOL "circle"
+            COLOR 0 0 255
+            OUTLINECOLOR 0 0 0
+            SIZE 7
+        END
+    END
+	CLASS
+        NAME "Pollué, ne nécessite ni surveillance ni assainissement"
+        EXPRESSION "r117_Pollue_ni_surveillance_ni_assainissement_pt"
+        STYLE
+            SYMBOL "circle"
+            COLOR 255 204 0
+            OUTLINECOLOR 0 0 0
+            SIZE 7
+        END
+    END
+	CLASS
+        NAME "Pollué, nécessite une surveillance"
+        EXPRESSION "r117_Pollue_necessite_surveillance_pt"
+        STYLE
+            SYMBOL "circle"
+            COLOR 255 102 5
+            OUTLINECOLOR 0 0 0
+            SIZE 7
+        END
+    END
+	CLASS
+        NAME "Pollué, nécessite un assainissement"
+        EXPRESSION "r117_Pollue_necessite_assainissement_pt"
+        STYLE
+            SYMBOL "circle"
+            COLOR 255 0 0
+            OUTLINECOLOR 0 0 0
+            SIZE 7
+        END
+    END
+	CLASS
+        NAME "Pollué, nécessitée d'une investigation non encore évaluée"
+        EXPRESSION "r117_Pollue_pas_atteinte_a_attendre_pt"
+        STYLE
+            SYMBOL "circle"
+             COLOR 95 95 95
+            OUTLINECOLOR 0 0 0
+            SIZE 7
+        END
     END
 END
 
