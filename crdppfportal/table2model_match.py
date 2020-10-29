@@ -13,6 +13,7 @@ from crdppf.models.models import ContaminatedMilitarySites
 from crdppf.models.models import WaterProtectionZones, WaterProtectionPerimeters
 from crdppf.models.models import RoadNoise, ForestLimits, ForestDistances
 from crdppfportal.models import ZonesReservees
+from crdppfportal.models import InventoriesArchaeologicalPaleontologicalSites
 
 # Matching dictionnary model-table name
 table2model_match = {
@@ -23,6 +24,7 @@ table2model_match = {
     'r73_contenus_ponctuels': LandUsePointConstraints,
     'r73_contenus_ponctuels': LandUsePointConstraints,
     'r76_zones_reservees': ZonesReservees,
+    'r12_ju_inventaire_sites_archeo_paleonto': InventoriesArchaeologicalPaleontologicalSites,
     'r87_astra_projektierungszonen_nationalstrassen': CHHighwaysProjectZones,
     'r88_astra_baulinien_nationalstrassen': CHHighwaysConstructionLimits,
     'r97_bav_baulinien_eisenbahnanlagen': CHRailwaysConstructionLimits,

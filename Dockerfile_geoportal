@@ -25,6 +25,12 @@ RUN mkdir -p crdppf_core/crdppf/static/build && \
   c2cwsgiutils_genversion.py $GIT_HASH && \
   create_standard_model -c ReservedAreas -g POLYGON -p /usr/local/lib/python3.6/dist-packages/pyramid_oereb/standard/models -k TRUE
 
+RUN mkdir -p crdppf_core/crdppf/static/build && \
+  jsbuild crdppf_core/jsbuild/app.cfg -o crdppf_core/crdppf/static/build && \
+  c2cwsgiutils_genversion.py $GIT_HASH && \
+  create_standard_model -c InventoriesArchaeologicalPaleontologicalSites -g POLYGON -p /usr/local/lib/python3.6/dist-packages/pyramid_oereb/standard/models -k TRUE
+
+
 COPY bin/eval-templates-geoportal /usr/bin/eval-templates
 COPY crdppfportal /app/crdppfportal
 COPY vars_sitj_pdf.yaml setup.cfg setup.py /app/

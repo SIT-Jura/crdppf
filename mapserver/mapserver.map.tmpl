@@ -1980,6 +1980,45 @@ LAYER
     END
 END
 
+LAYER
+    NAME "r12_ju_inventaire_sites_archeo_paleonto"
+#    GROUP "r12-ju_inventaire_sites_archeo_paleonto"
+    TYPE POLYGON
+    METADATA
+        "ows_title" "r12_ju_inventaire_sites_archeo_paleonto"
+        "wms_srs" "epsg:${srid}"
+        "wms_title" "${instanceid} WMS Server"
+        "wms_onlineresource" "http://${host}/${instanceid}/wmscrdppf"
+    END
+    CONNECTIONTYPE POSTGIS
+    EXTENT ${extend_mapfile}
+    CONNECTION "user=${dbuser} password=${dbpassword} dbname=${db} host=${dbhost} port=${dbport}"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    DATA "geom from crdppf.r12_ju_inventaire_sites_archeo_paleonto using unique idobj using srid=${srid}"
+    STATUS ON
+    CLASSITEM "codegenre"
+    OPACITY 60
+    TEMPLATE "ttt"
+    CLASS
+        NAME "Site identifié"
+        EXPRESSION "r12-ju_isap_site_identifie"
+        STYLE
+            COLOR 255 217 217
+			OUTLINECOLOR 255 0 0
+			WIDTH 3
+        END
+    END
+    CLASS
+        NAME "Site présumé"
+        EXPRESSION "r12-ju_isap_site_presume"
+        STYLE
+            COLOR 240 228 179
+			OUTLINECOLOR 230 186 0
+			WIDTH 3
+        END
+    END
+END
+
 #####################
 # RESTRICTIONS CRDPPF - fin
 #####################

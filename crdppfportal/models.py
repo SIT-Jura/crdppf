@@ -24,3 +24,9 @@ class ZonesReservees(GeoInterface, Base):
     __table_args__ = {'schema': db_config['schema'], 'autoload': True}
     idobj = Column(Integer, primary_key=True)
 geom = Column(Geometry("POLYGONE", srid=srid_))
+
+class InventoriesArchaeologicalPaleontologicalSites(GeoInterface, Base):
+    __tablename__ = 'r12_ju_inventaire_sites_archeo_paleonto'
+    __table_args__ = {'schema': db_config['schema'], 'autoload': True}
+    idobj = Column(Integer, primary_key=True)
+geom = Column(Geometry("POLYGONE", srid=srid_))
